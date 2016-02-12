@@ -15,11 +15,13 @@ gt_bimatrix(X = matrix(c(0, 1, 1, 0), 2), Y = t(X), P1 = "Player 1",
   arrow2 = arrow1, arrow1col = gray(0.4), arrow2col = arrow1col,
   width1 = 3, width2 = width1, nash = TRUE, starfill = "orange",
   tips = 8, nashborder = "black", playersize = NULL, labelsdim = NULL,
-  pdim = NULL, tscale = 1, main = "", tfont = "HersheySerif",
-  maincex = 1, col.main = "red", mainline = NA)
+  pdim = NULL, tscale = 1, main = "", tfont = NULL, maincex = 1,
+  col.main = "red", mainline = NA)
 }
 \arguments{
-\item{X}{Payoff matrix. Defaults to matching pennies.}
+\item{X}{Payoff matrix for player 1. Defaults to matching pennies.}
+
+\item{Y}{Payoff matrix for player 2. Defaults to matching pennies.}
 }
 \description{
 This function helps you plot a payoff matrix and identify pure strategy Nash equilibria
