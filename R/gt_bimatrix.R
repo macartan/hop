@@ -4,7 +4,7 @@
 #' This function helps you plot a payoff matrix and identify pure strategy Nash equilibria
 #' @param X Payoff matrix for player 1. Defaults to coordination.
 #' @param Y Payoff matrix for player 2. Defaults to coordination.
-#' @keywords
+#' @keywords Payoff matrix, Nash
 #' @export
 #' @examples
 #' gt_bimatrix()

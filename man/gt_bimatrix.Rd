@@ -4,24 +4,24 @@
 \alias{gt_bimatrix}
 \title{Payoff Matrix}
 \usage{
-gt_bimatrix(X = matrix(c(0, 1, 1, 0), 2), Y = t(X), P1 = "Player 1",
-  P2 = "Player 2", labels1 = NULL, labels2 = labels1, labelsize = NULL,
+gt_bimatrix(X = matrix(c(1, 0, 0, 1), 2), Y = t(X), P1 = "Player 1",
+  P2 = "Player 2", labels1 = NULL, labels2 = NULL, labelsize = NULL,
   u = NULL, pty = "s", srt1 = 0, srt2 = 0, mar = c(0.7, 0.7, 0.7,
   0.7), matrixfill = gray(0.7), pcol1 = "black", pcol2 = pcol1,
   numcol1 = pcol1, numcol2 = pcol2, scol1 = pcol1, scol2 = pcol2,
   gameborder = TRUE, bordercol = "white", borderdim = NULL, lwd = 3,
-  offset1 = c(0.8, 0.8), offset2 = c(0.2, 0.2), arrowdist = 0.2,
-  radius = 0.2, space = max(arrowdist, radius + 0.075), arrow1 = TRUE,
+  offset1 = c(0.8, 0.8), offset2 = c(0.2, 0.2), arrow1 = TRUE,
   arrow2 = arrow1, arrow1col = gray(0.4), arrow2col = arrow1col,
-  width1 = 3, width2 = width1, nash = TRUE, starfill = "orange",
+  width1 = 3, width2 = width1, arrowdist = 0.2, space = max(arrowdist,
+  radius + 0.075), nash = TRUE, radius = 0.2, starfill = "orange",
   tips = 8, nashborder = "black", playersize = NULL, labelsdim = NULL,
   pdim = NULL, tscale = 1, main = "", tfont = NULL, maincex = 1,
-  col.main = "red", mainline = NA)
+  col.main = "red", mainline = -0.5)
 }
 \arguments{
-\item{X}{Payoff matrix for player 1. Defaults to matching pennies.}
+\item{X}{Payoff matrix for player 1. Defaults to coordination.}
 
-\item{Y}{Payoff matrix for player 2. Defaults to matching pennies.}
+\item{Y}{Payoff matrix for player 2. Defaults to coordination.}
 }
 \description{
 This function helps you plot a payoff matrix and identify pure strategy Nash equilibria
@@ -30,4 +30,7 @@ This function helps you plot a payoff matrix and identify pure strategy Nash equ
 gt_bimatrix()
 
 }
+\keyword{Nash}
+\keyword{Payoff}
+\keyword{matrix,}
 
