@@ -7,7 +7,8 @@
 #' @keywords Payoff matrix, Nash
 #' @export
 #' @examples
-#' gt_bimatrix()
+#' M1 <- matrix(1:12, 3, 4)
+#' gt_bimatrix(M1, M1, labels1 =paste(1:3), labels2 = paste(1:4), main = "Asymmetric", mainline = -1)
 #'
 
 
