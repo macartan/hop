@@ -13,10 +13,10 @@ gt_bimatrix(X = matrix(c(1, 0, 0, 1), 2), Y = t(X), P1 = "Player 1",
   offset1 = c(0.8, 0.8), offset2 = c(0.2, 0.2), arrow1 = TRUE,
   arrow2 = arrow1, arrow1col = gray(0.4), arrow2col = arrow1col,
   width1 = 3, width2 = width1, arrowdist = 0.2, space = max(arrowdist,
-  radius + 0.075), nash = TRUE, radius = 0.2, starfill = "orange",
-  tips = 8, nashborder = "black", playersize = NULL, labelsdim = NULL,
-  pdim = NULL, tscale = 1, main = "", tfont = NULL, maincex = 1,
-  col.main = "red", mainline = -0.5)
+  radius + 0.075), nash = TRUE, radius = 0.2, starfill = "red",
+  starborderlwd = 2, tips = 8, nashborder = "black", playersize = NULL,
+  labelsdim = NULL, pdim = NULL, tscale = 1, main = "", tfont = NULL,
+  maincex = 1, col.main = "red", mainline = -0.5)
 }
 \arguments{
 \item{X}{Payoff matrix for player 1. Defaults to coordination.}
@@ -24,7 +24,7 @@ gt_bimatrix(X = matrix(c(1, 0, 0, 1), 2), Y = t(X), P1 = "Player 1",
 \item{Y}{Payoff matrix for player 2. Defaults to coordination.}
 }
 \description{
-This function helps you plot a payoff matrix and identify pure strategy Nash equilibria
+This function helps you plot a payoff matrix and identify pure strategy Nash equilibria. Credit for base code: Neelanjan Sircar
 }
 \examples{
 M1 <- matrix(1:12, 3, 4)

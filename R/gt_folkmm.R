@@ -9,10 +9,10 @@
 #' @export
 #' @examples
 #' X = matrix(c(2,3,0,1),2)
-#' gt.folkmm(X)
+#' gt_folkmm(X)
 #' X = matrix(  c(2,0,0,0,1,0,0,0,5),3)
 #' Y = t(matrix(c(1,2,1,2,1,1,1,3,1),3))
-#' gt.folkmm(X,Y)
+#' gt_folkmm(X,Y)
 #'
 gt_folkmm = function(X,
                      Y=t(X),
@@ -20,8 +20,8 @@ gt_folkmm = function(X,
                      feasible=TRUE,
                      rational=TRUE,
                      pointsize=2,
-                     colf=rgb(0,1,0,0.5),
-                     colr=rgb(0.5,0,.5,0.5),
+                     colf= "grey",
+                     colr=	rgb(1, .1, 0, .5),
                      main="",
                      mainsize=1,...){
 	Z=matrix(c(X, Y), ncol=2)

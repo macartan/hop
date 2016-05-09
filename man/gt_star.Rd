@@ -5,7 +5,7 @@
 \title{Helper to draw stars}
 \usage{
 gt_star(x, y, rad = 1, phi = 0, starfill = "turquoise", outer = "black",
-  tips = 8)
+  tips = 8, starborderlwd = 3)
 }
 \arguments{
 \item{tips}{number of points}

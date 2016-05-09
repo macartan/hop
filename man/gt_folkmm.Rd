@@ -5,8 +5,8 @@
 \title{Graphs the individually rational and feasible outcomes that can be sustained as equilibria of a two person game}
 \usage{
 gt_folkmm(X, Y = t(X), fine = 100, feasible = TRUE, rational = TRUE,
-  pointsize = 2, colf = rgb(0, 1, 0, 0.5), colr = rgb(0.5, 0, 0.5, 0.5),
-  main = "", mainsize = 1, ...)
+  pointsize = 2, colf = "grey", colr = rgb(1, 0.1, 0, 0.5), main = "",
+  mainsize = 1, ...)
 }
 \arguments{
 \item{X}{Payoff matrix for player 1. Defaults to coordination.}
@@ -18,10 +18,10 @@ Graphs the individually rational and feasible outcomes that can be sustained as 
 }
 \examples{
 X = matrix(c(2,3,0,1),2)
-gt.folkmm(X)
+gt_folkmm(X)
 X = matrix(  c(2,0,0,0,1,0,0,0,5),3)
 Y = t(matrix(c(1,2,1,2,1,1,1,3,1),3))
-gt.folkmm(X,Y)
+gt_folkmm(X,Y)
 }
 \keyword{Nash}
 \keyword{Payoff}

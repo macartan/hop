@@ -1,0 +1,143 @@
+---
+title: 'Political Games: Endnotes'
+output:
+  html_document:
+    highlight: tango
+    number_sections: yes
+    theme: cerulean
+    fig_width: 6.2
+    fig_height: 6.5
+---
+
+These illustrations are suggested in the endnotes of *Political Games*. 
+
+```{r include=FALSE, cache=FALSE}
+rm(list=ls(all=TRUE))
+```
+
+# Getting Going  
+First open R or Rstudio and install the hop package from github:
+
+```{r eval=FALSE}
+devtools::install_github("macartan/hop")
+```
+
+Then load it up:
+```{r}
+library(hop)
+```
+
+# Implement
+
+Some normal form games: PD (#1), with and without equilibrium marked
+```{r}
+payoffs <-  matrix(c(2,3,0,1),2)
+gt_bimatrix(payoffs, labels1=c("C","D"))
+gt_bimatrix(payoffs, labels1=c("C","D"), nash=FALSE, arrow1=FALSE)
+```
+
+Chicken (#2): Pure strategy equiibriums marked
+```{r}
+payoffs <- matrix(c(2,3,1,0),2)
+gt_bimatrix(payoffs, labels1=c("C","D"))
+```
+
+Assurance (#3): Pure strategy equiibriums marked
+```{r}
+payoffs <- matrix(c(3,2,0,1),2)
+gt_bimatrix(payoffs, labels1=c("C","D"))
+```
+
+Illustrating the folk theorems (#4), for the Prisoner's Dilemma:
+```{r}
+gt_folkmm(matrix(c(2,3,0,1),2))
+```
+
+...and for the Assurance Game
+```{r}
+gt_folkmm(matrix(c(3,2,0,1),2))
+```
+
+Condorcet Jury (#10): Gives an illustration of the law of large numbers
+```{r}
+gt_jury(n=7, base=.6)
+```
+
+Power indices (#13): Shows mapping between raw votes and power for two seemingly similar committees
+```{r}
+gt_plot_banzhaf(c(1, 1, 3,7,9,9)/30,.5)
+gt_plot_banzhaf(c(1, 1, 3,7,9,10)/30,.6)
+```
+
+Plott (#14): Illustrating the absence of stable points
+```{r}
+gt_majority_phase(matrix(c(0, 0, .5, 1, 1, 0), 2))
+gt_majority_phase(matrix(c(.2, .2, .5, .9, 1, 0), 2),
+                  raylengths=c(.5, .2))
+```
+
+Cycles (#15): Majority rule cycling
+```{r}
+gt_cycles(3, 25)
+```
+
+Legislative bargaining (#18): Returns equilibrium returns given recognition probabilities
+```{r}
+gt_leg_barg(c(.8,.2,0))
+```
+
+Cascades (#22): Where you end up after 50,000 random orderings
+```{r}
+x <- c(1,1,1,1,1,1,0,0,0)
+D <- replicate(50000, gt_declarations(sample(x))$Declarations)
+mean(D[9,])
+```
+
+Nash bargaining (#27)
+```{r, fig.width=9, fig.height=3.5}
+gt_nbs(u1 = function(x) x^.5, u2 = function (x) 1 - x)
+```
+
+Simple version with equilibrium only marked. 
+```{r}
+gt_nbs(solution_only = TRUE)
+```
+
+Two Coase theorem illustrations (#31)
+```{r}
+gt_coase(X=matrix(c(2,3,0,1),2), matrix=TRUE, feasible=TRUE,
+         bargain = TRUE)
+gt_coase(f=function(x) 1-x^2, matrix=FALSE, feasible=TRUE,
+           bargain = TRUE, SQ=c(0,1))
+```
+
+Clake-Groves mechanism (#36). The circular indifference curves at the bottom right imply dominant strategies
+```{r, fig.width=7, fig.height=8}
+gt_cgm (theta1 = .2, theta2 = .4)
+```
+
+Meltzer Richard (#40): Attitudes to taxes for a given endowment
+```{r}
+gt_plot_mr (e = .5, main = "Endowment = 0.5")
+```
+
+Evolutionary stabilty (#47)
+```{r}
+gt_sss (e = 0, t = 2)
+```
+
+Nash's theorem illustration (best response functions) (#A3)
+```{r, fig.width=7, fig.height=7}
+XC <- matrix(c(0,1,.75,.25),2)
+gt_bimatrix(-XC, XC, srt1=90,
+            labels1=c("Left","Right"), P1="Goalie", P2="Shooter")
+```
+
+The best response graph -- you can do one of these for any normal form game.
+```{r, fig.width=6.5, fig.height=6.8}
+gt_brgraph(-XC, XC,
+           labelsR=c("Left", "Right"), PR="Goalie", PC="Shooter")
+```
+
+
+\# end

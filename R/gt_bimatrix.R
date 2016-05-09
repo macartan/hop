@@ -1,7 +1,7 @@
 
 #' Payoff Matrix
 #'
-#' This function helps you plot a payoff matrix and identify pure strategy Nash equilibria
+#' This function helps you plot a payoff matrix and identify pure strategy Nash equilibria. Credit for base code: Neelanjan Sircar
 #' @param X Payoff matrix for player 1. Defaults to coordination.
 #' @param Y Payoff matrix for player 2. Defaults to coordination.
 #' @keywords Payoff matrix, Nash
@@ -62,7 +62,8 @@ gt_bimatrix <- function(
   space=max(arrowdist, radius+.075),
   nash=TRUE,
   radius=.2,
-  starfill="orange",
+  starfill="red",
+  starborderlwd = 2, # Thickness of border of Nash star
   tips=8,
   nashborder="black",
   playersize=NULL,
@@ -132,7 +133,7 @@ gt_bimatrix <- function(
       pureNEx[i,j] <- ifelse((X[i,j]==max(X[,j]) & (Y[i,j]==max(Y[i,]))),j-.5, NA)
       pureNEy[i,j] <- ifelse((X[i,j]==max(X[,j]) & (Y[i,j]==max(Y[i,]))),nrow(X)-i+.5, NA)
     }}
-  if (nash) gt_star(as.vector(pureNEx), as.vector(pureNEy), rad=radius, phi=0, starfill=starfill, tips=tips)
+  if (nash) gt_star(as.vector(pureNEx), as.vector(pureNEy), rad=radius, phi=0, starfill=starfill, tips=tips, starborderlwd=starborderlwd)
 }
 
 
