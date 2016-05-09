@@ -1,5 +1,7 @@
 
-#' Majority Preference Relation. Let P be a d*n vecotr of  ideal points for n individuals in d dimensions a and b are d*1 policy vectors gt_maj_pref(P,a,b) reports whether a strict majority of individuals strictly prefer a to b
+#' Majority Preference Relation.
+#'
+#' Let P be a \code{d*n} vecotr of  ideal points for n individuals in d dimensions a and b are d*1 policy vectors \code{gt_maj_pref(P,a,b)} reports whether a strict majority of individuals strictly prefer a to b
 #'
 #' @param method Distance metric, deafulats to Euclidean
 #' @param P matrix of ideal points

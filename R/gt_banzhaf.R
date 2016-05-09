@@ -1,12 +1,10 @@
 
 
-# We generate a function for calculating the Banzhaf index and apply it to
-# two different ?q-rules? for Nassau county data. The Banzhaf function can
-# be defined in this way for any rule using this approach.
 
 
-#' Banzhaf index:  +1 for decisive coalitions, -1 otherwise
+#' Banzhaf index
 #'
+#' We generate a function for calculating the Banzhaf index and apply it to two different ?q-rules? for Nassau county data. The Banzhaf function can be defined in this way for any rule using this approach. +1 for decisive coalitions, -1 otherwise
 #' @param w Vector of voting weights
 #' @param q Threshold for voting success
 #' @keywords Banzhaf, Decision Rules

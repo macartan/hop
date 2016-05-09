@@ -1,5 +1,6 @@
-#' # Function for plotting utilities for  games in which two players can each choose  a strategy from a continuous action space.  Best responses function or correspondence are plotted and Nash equilibria identified.  sequence from s1 to s2
+#' Best Response Plots
 #'
+#' Function for plotting utilities for  games in which two players can each choose  a strategy from a continuous action space.  Best responses function or correspondence are plotted and Nash equilibria identified.  sequence from s1 to s2
 #' @param u1 Player 1's utility
 #' @param u2 Player 2's utility
 #' @keywords Best response plot

@@ -1,6 +1,3 @@
-# Helper files
-
-
 #' Helper to shift coordinates
 #'
 #' Generate a sequence centered on s, with length l, and gaps of d. Used to align multiple arrows.
@@ -8,7 +5,6 @@
 #' @param l a number -- length of shift
 #' @param d a number -- size of shift
 #' @keywords shift
-#' @export
 #' @examples
 #' gt_shift()
 gt_shift <- function(s, # center
@@ -65,7 +61,6 @@ gt_BRarrow <- function(
 #' A function to draw stars
 #' @param tips number of points
 #' @keywords stars
-#' @export
 #' @examples
 #' gt_star()
 gt_star <- function(
@@ -93,11 +88,12 @@ gt_star <- function(
 # Credit: Greg Snow http://blog.revolutionanalytics.com/2009/05/make-text-stand-out-with-outlines.html
 #
 
+#' Shadow text
+#'
 #' Place a shadow behind text (white default)
 #'
 #' @param x X location
 #' @keywords text
-#' @export
 #' @examples
 #' gt_shadowtext()
 gt_shadowtext <- function(x,
@@ -124,7 +120,6 @@ gt_shadowtext <- function(x,
 #' Note angle is a bit messy because of aspect ratios; fixer can be used to adjust
 #' @param labels text
 #' @keywords text
-#' @export
 #' @examples
 #' gt_slope_text()
 gt_slope_text = function(labels, f, xl=0, xh=1, vshift=.05, col="black", fixer=1, pos = NULL, adj = c(.5,0),
@@ -159,6 +154,8 @@ gt_slope_text = function(labels, f, xl=0, xh=1, vshift=.05, col="black", fixer=1
     cex = cex)}
 }
 
+#' Drawing a curve
+#'
 #' Curve segment starting; let circle be indxed by 0,1, where 0 is the beginning of the circle (center right) moving clockwise to 1 back to center right
 #' run is the length of the curve, so run = 1 is a full circle, run = .5 is a semi circle etc; run -x, goes anticlockwise
 #' Then semi circle might start at .5 and end at 1, or start even at .75 and end at 2.
@@ -166,7 +163,6 @@ gt_slope_text = function(labels, f, xl=0, xh=1, vshift=.05, col="black", fixer=1
 #' @param cx a number x center of curve
 #' @param cy a number y center of curve
 #' @keywords curve arrows
-#' @export
 #' @examples
 #' gt_curve()
 gt_curve = function(cx=0,
@@ -203,7 +199,6 @@ gt_curve = function(cx=0,
 #'
 #' @param v a vector giving number of elements in each variable
 #' @keywords permutations
-#' @export
 #' @examples
 #' gt_permv(c(2,3))
 gt_permv <- function(v) {

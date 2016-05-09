@@ -1,5 +1,7 @@
 
-#' # Legislative bargaining with three equally weighted voters. For any recognition probabilities, return the equilibrium allocations. Note: when lowest unit has 0 probability then a random solution taken
+#' Legislative bargaining
+#'
+#' Legislative bargaining with three equally weighted voters. For any recognition probabilities, return the equilibrium allocations. Note: when lowest unit has 0 probability then a random solution taken
 #'
 #' @param p A vector of recognition probabilities
 #' @param seed A seed

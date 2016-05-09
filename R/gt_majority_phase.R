@@ -1,3 +1,5 @@
+#' Majority rule equilibrium
+#'
 #' Phase plot for majority rule. Requires majority preference relation function.
 #'
 #' @param P Matrix with location of ideal points

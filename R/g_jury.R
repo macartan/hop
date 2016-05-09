@@ -1,5 +1,6 @@
-#' Condorcet jury theorem. Illustrates basic logic from law of large numbers.
+#' Condorcet jury theorem.
 #'
+#' Illustrates basic logic from law of large numbers.
 #' @param n number of voters
 #' @param base  probability each is right, defaults to 0.51
 #' @keywords Condorcet, Jury

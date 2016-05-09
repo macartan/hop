@@ -1,6 +1,7 @@
 
-#' Clarke-Groves Mechanism. Utility for public good is of the form u(x | theta_i) = theta_i*x^.5 - t_i. Default cost equals amount produced, say.  Consider two games. In one each is charged x/2. In the other VCG transfers are used.  Games solved as normal form games (as if in fact players know the other's preferences, even if mechanism does not)
+#' Clarke-Groves Mechanism.
 #'
+#' Utility for public good is of the form u(x | theta_i) = theta_i*x^.5 - t_i. Default cost equals amount produced, say.  Consider two games. In one each is charged x/2. In the other VCG transfers are used.  Games solved as normal form games (as if in fact players know the other's preferences, even if mechanism does not)
 #' @param theta1 Player 1's valuation
 #' @param theta2 Player 2's valuation
 #' @keywords Clarke Groves Mechanism, Mechanism Design

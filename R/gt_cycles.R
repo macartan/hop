@@ -1,4 +1,6 @@
 
+#' Chaotic cycles
+#'
 #' Plots chaotic majority rule cycles. We randomly select n voters and construct a sequence of k motions, each of which is majority preferred to the previous one in the sequence. Parameter z is used to scale the graph and a seed ("seed") is used for replication
 #'
 #' @param n Number of voters

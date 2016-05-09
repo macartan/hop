@@ -1,12 +1,7 @@
 
-## Cascade
-
-# A  cascade  can  also  form,  for  example,  if  the  first  two  decisions  differ  and  the  next  two  match.
-# In  all  cases,  it  takes  an  imbalance  of  two  de-  cisions  in  one  direction  to  overpower  the  informational  content  of  subsequent  individual  signals.
-# PosteriorFunction to figure if you should say Yes or no given a string with n relevant Yeses and m relevant no's
-
-#' # Legislative bargaining with three equally weighted voters. For any recognition probabilities, return the equilibrium allocations. Note: when lowest unit has 0 probability then a random solution taken
+#' Cascade
 #'
+#' A  cascade  can  also  form,  for  example,  if  the  first  two  decisions  differ  and  the  next  two  match. In  all  cases,  it  takes  an  imbalance  of  two  de-  cisions  in  one  direction  to  overpower  the  informational  content  of  subsequent  individual  signals. PosteriorFunction to figure if you should say Yes or no given a string with n relevant Yeses and m relevant no's
 #' @param x Vector with signals received
 #' @keywords Cascade
 #' @export

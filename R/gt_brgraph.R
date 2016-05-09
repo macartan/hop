@@ -1,12 +1,9 @@
-######################################################
-#	Best response graph for 2 person game	         #
 
-
-
-
-#' Plot best reactions for normal form games
+#' Plot best reactions for two person normal form games
 #'
-#' This function plots best reactions. Intersections are Nash equilibria. Thanks to Neelan Sircar for developing this code.
+#' This function plots best reactions. Intersections are Nash equilibria. Thanks to Neelan Sircar for developing much of this code.
+#' To show utilities for players use \code{util = TRUE}. To show best response functions use \code{BR = TRUE}. Both can be done also
+#' with output either aligned horizontally or vertically, using \code{vert}.
 #' @param R Row payoffs
 #' @param C Column payoffs
 #' @keywords Payoff matrix, Nash, Best responses
@@ -14,8 +11,7 @@
 #' @examples
 #' C <- matrix(c(1,0,0,1),2,2)
 #' R <- matrix(c(1,0,0,1),2,2)
-#' brgraph(R, C, P1="Country R", P2="Country C", leglocBR=c(.8,.2))
-
+#' gt_brgraph(R, C, PR="Country R", PC="Country C", leglocBR=c(.8,.2))
 
 gt_brgraph <- function(
         R, C=t(R),
@@ -66,10 +62,15 @@ R_pl <-  as.numeric(R[2,1]>R[1,1]); C_pl <- as.numeric(C[1,2]> C[1,1])
 R_ph <-  as.numeric(R[2,2]>R[1,2]); C_ph <- as.numeric(C[2,2]> C[2,1])
 
 # Graph best responses
-if(BR){ plot(1,1, xlim=c(0,1), ylim=c(0,1), xlab=paste("Probability on", labelsC[1], "for", PC), ylab= paste("Probability on", labelsR[1], "for", PR), cex.lab=1-.3*(BR & util), cex.axis=1-.3*(BR & util), type="n", main=mainbr)
+if(BR){ plot(1,1, xlim=c(0,1), ylim=c(0,1),
+             xlab=paste("Probability on", labelsC[1], "for", PC),
+             ylab= paste("Probability on", labelsR[1], "for", PR),
+             cex.lab=1-.3*(BR & util), cex.axis=1-.3*(BR & util), type="n", main=mainbr)
 	if(draw1){points(c(0,pC,pC,1), c(R_pl,R_pl,R_ph,R_ph), type="l", lwd=5, col=gray(.3))}
 	if(draw2){points(c(C_pl,C_pl,C_ph,C_ph),c(0,pR,pR,1), type="l", lwd=5, col=gray(.3), lty=3)}
-	if (draw1 & draw2) {text(Rloc[1], Cloc[1], paste("Prob ", PR, " plays ", labelsR[1], "=", pR,sep=""), cex=1-.3*(BR & util & vert));
+	if (draw1 & draw2) {text(Rloc[1], Cloc[1],
+	                         paste("Prob ", PR, " plays ", labelsR[1], "=", pR,sep=""),
+	                         cex=1-.3*(BR & util & vert));
 						text(Rloc[2], Cloc[2], paste("Prob ", PC, " plays ", labelsC[1], "=", pC,sep=""), cex=1-.3*(BR & util & vert))}
 	if(legBR) legend(leglocBR[1], leglocBR[2], c(PR ,PC),
 	                 lty=c(1,3), lwd=5, col=gray(.3), xjust=.5, yjust=.5, cex=1-.3*(BR & util))}

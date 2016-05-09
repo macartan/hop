@@ -2,6 +2,8 @@
 
 #' Define q Rule (strict inequality)
 #'
+#' Assesses whether a coalition is sufficient to support an action
+#'
 #' @param x Vector of indicators of coalition membership
 #' @param w Vector of voting weights
 #' @param q Threshold for voting success

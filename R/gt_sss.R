@@ -1,7 +1,7 @@
 
-#' Generate transition matrix for Stochastic stability demonstration
+#' Stochastic stability
 #'
-#' Takes error e as argument
+#' Generate transition matrix for Stochastic stability demonstration. Takes error \code{e} as argument
 #' @param e Error
 #' @keywords Stochastic Stability
 #' @export
@@ -23,22 +23,22 @@ gt_sss_mat <- function(e=.1) matrix(c(1 - e, (1 - e) / 3, 0, 0,
 #' @examples
 #' gt_sss()
 
-gt_sss <- function(mat = gt_sss_mat, 
-                   e=1, 
-                   t=1, 
-                   cex.pt = 8, 
-                   ann = TRUE, 
-                   mar = 1.5, 
-                   oma = 5, 
-                   bgcol="gray90", 
-                   pointcol="gray50", 
-                   labcex=.5, 
-                   indent=4, 
-                   arrows=TRUE, 
-                   etlabs = TRUE, 
+gt_sss <- function(mat = gt_sss_mat,
+                   e=1,
+                   t=1,
+                   cex.pt = 8,
+                   ann = TRUE,
+                   mar = 1.5,
+                   oma = 5,
+                   bgcol="gray90",
+                   pointcol="gray50",
+                   labcex=.5,
+                   indent=4,
+                   arrows=TRUE,
+                   etlabs = TRUE,
                    outax=TRUE) {
-  
-  
+
+
   # compute and plot transition matrix for specific error rate and time periods
   .gt_sss <- function(mat, e, t, cex.pt = 8, ann = FALSE, mar = 1.5, bgcol="gray90", pointcol="gray50", labcex=.5, indent = 4) {
     mat <- match.fun(mat)
@@ -54,21 +54,21 @@ gt_sss <- function(mat = gt_sss_mat,
     }
     return(p.t)
   }
-  
-  
+
+
     par(mfrow = c(length(e), length(t)), oma = c(oma, oma, 0, 0))
     k <- 1
     for(i in rev(e)) {
         for(j in t) {
-            ifelse(k == 1, 
-                   .gt_sss(mat, i, j, cex.pt = cex.pt, ann = ann, mar = mar, bgcol=bgcol, pointcol=pointcol, labcex=labcex, indent=indent), 
+            ifelse(k == 1,
+                   .gt_sss(mat, i, j, cex.pt = cex.pt, ann = ann, mar = mar, bgcol=bgcol, pointcol=pointcol, labcex=labcex, indent=indent),
                    .gt_sss(mat, i, j, cex.pt = cex.pt, mar = mar, bgcol=bgcol, pointcol=pointcol))
             k <- k + 1 } }
     par(new = TRUE)
     par(mfrow = c(1, 1), mai = par("omi") + par("mai"), oma = rep(0, 4), mgp = c(3, 1, .5))
 	if(outax==TRUE){plot(NA, xlim = c(0,1), ylim = c(0,1), xaxs = "i", yaxs = "i", axes = FALSE, ylab = "Error rate", xlab = "Time")}
 	if(outax==FALSE){plot(NA, xlim = c(0,1), ylim = c(0,1), xaxs = "i", yaxs = "i", axes = FALSE, xlab="How many  will cheat tomorrow?", ylab = "How many cheating now?")}
-		
+
     if(etlabs){axis(1, (2 * (1:length(t)) - 1) / (2 * length(t)), t, tick = FALSE)
 		axis(2, (2 * (1:length(e)) - 1) / (2 * length(e)), e, tick = FALSE)}
     if(arrows){	arrows(0, -.02, 1, -.02, length = .1, xpd=NA)

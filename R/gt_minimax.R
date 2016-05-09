@@ -1,7 +1,7 @@
 
 
 
-#' Payoff Matrix
+#' Minimax
 #'
 #' Calculates minimax strategies and payoffs on a probability grid with increments of 1/fine.  Matrix A is the matrix for a single player with own actions in the row position
 #' @param A Payoff matrix

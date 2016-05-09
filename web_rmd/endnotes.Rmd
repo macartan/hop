@@ -133,7 +133,8 @@ gt_bimatrix(-XC, XC, srt1=90,
             labels1=c("Left","Right"), P1="Goalie", P2="Shooter")
 ```
 
-The best response graph -- you can do one of these for any normal form game.
+The best response graph -- you can do one of these for any normal form game. In this case you can see that if the shooter plays left with probability 0.33, the goalie is willing to play any srtategy (solid vertical line at 0.33); if the goalie plays left with probability 0.5, the shooter is willing to play any srtategy (horizontal dotted line at 0.5).
+
 ```{r, fig.width=6.5, fig.height=6.8}
 gt_brgraph(-XC, XC,
            labelsR=c("Left", "Right"), PR="Goalie", PC="Shooter")

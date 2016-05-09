@@ -1,4 +1,4 @@
-#' # Nash bargaining solution
+#' Nash bargaining solution
 #'
 #' @param u1 a function, increasing in x
 #' @param u2 a function, decreasing in x

@@ -1,6 +1,8 @@
 
 
 
+#' Folk Theorem
+#'
 #' Graphs the individually rational and feasible outcomes that can be sustained as equilibria of a two person game
 #'
 #' @param X Payoff matrix for player 1. Defaults to coordination.
