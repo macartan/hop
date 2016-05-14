@@ -12,6 +12,7 @@ These illustrations are suggested in the endnotes of *Political Games*. This doc
 
 ```{r include=FALSE, cache=FALSE}
 rm(list=ls(all=TRUE))
+library(knitr)
 ```
 
 # Getting Going  
@@ -49,12 +50,14 @@ gt_bimatrix(payoffs, labels1=c("C","D"))
 
 Illustrating the folk theorems (#4), for the Prisoner's Dilemma:
 ```{r}
-gt_folkmm(matrix(c(2,3,0,1),2))
+payoffs <- matrix(c(2,3,0,1),2)
+gt_folk(payoffs)
 ```
 
 ...and for the Assurance Game
 ```{r}
-gt_folkmm(matrix(c(3,2,0,1),2))
+payoffs <- matrix(c(3,2,0,1),2)
+gt_folk(payoffs)
 ```
 
 Condorcet Jury (#10): Gives an illustration of the law of large numbers
@@ -64,25 +67,31 @@ gt_jury(n=7, base=.6)
 
 Power indices (#13): Shows mapping between raw votes and power for two seemingly similar committees
 ```{r}
-gt_plot_banzhaf(c(1, 1, 3,7,9,9)/30,.5)
-gt_plot_banzhaf(c(1, 1, 3,7,9,10)/30,.6)
+gt_plot_banzhaf(weights = c(1, 1, 3,7,9,9), q_rule = .5)
+gt_plot_banzhaf(weights = c(1, 1, 3,7,9,10), q_rule = .6)
 ```
 
 Plott (#14): Illustrating the absence of stable points
 ```{r}
-gt_majority_phase(matrix(c(0, 0, .5, 1, 1, 0), 2))
-gt_majority_phase(matrix(c(.2, .2, .5, .9, 1, 0), 2),
-                  raylengths=c(.5, .2))
+ideals <- matrix(c(0, 0, .5, 1, 1, 0), 2)
+gt_majority_phase(ideals)
+```
+
+
+```{r}
+ideals <- matrix(c(.2, .2, .5, .9, 1, 0), 2)
+gt_majority_phase(ideals, raylengths=c(.5, .2))
 ```
 
 Cycles (#15): Majority rule cycling
 ```{r}
-gt_cycles(3, 25)
+gt_cycles(n_voters = 3, n_motions = 25)
 ```
 
 Legislative bargaining (#18): Returns equilibrium returns given recognition probabilities
 ```{r}
-gt_leg_barg(c(.8,.2,0))
+probabilities <- c(.8,.2,0)
+gt_leg_barg(probabilities)
 ```
 
 Cascades (#22): Where you end up after 50,000 random orderings
@@ -104,10 +113,9 @@ gt_nbs(solution_only = TRUE)
 
 Two Coase theorem illustrations (#31)
 ```{r}
-gt_coase(X=matrix(c(2,3,0,1),2), matrix=TRUE, feasible=TRUE,
-         bargain = TRUE)
-gt_coase(f=function(x) 1-x^2, matrix=FALSE, feasible=TRUE,
-           bargain = TRUE, SQ=c(0,1))
+payoffs <- matrix(c(2,3,0,1),2)
+gt_coase(X=payoffs, bargain = TRUE, SQ = "minimax")
+gt_coase(f=function(x) 1-x^2, bargain = TRUE, SQ=c(0,1))
 ```
 
 Clake-Groves mechanism (#36). The circular indifference curves at the bottom right imply dominant strategies
@@ -117,12 +125,12 @@ gt_cgm (theta1 = .2, theta2 = .4)
 
 Meltzer Richard (#40): Attitudes to taxes for a given endowment
 ```{r}
-gt_plot_mr (e = .5, main = "Endowment = 0.5")
+gt_plot_mr(e = .5, main = "Endowment = 0.5")
 ```
 
 Evolutionary stabilty (#47)
-```{r}
-gt_sss (e = 0, t = 2)
+```{r, fig.width=7, fig.height=7}
+gt_sss(error = 0, periods = 2)
 ```
 
 Nash's theorem illustration (best response functions) (#A3)
@@ -136,8 +144,12 @@ The best response graph -- you can do one of these for any normal form game. In 
 
 ```{r, fig.width=6.5, fig.height=6.8}
 gt_brgraph(-XC, XC,
-           labelsR=c("Left", "Right"), PR="Goalie", PC="Shooter")
+           labelsR=c("Left", "Right"), P1="Goalie", P2="Shooter")
 ```
 
+Extract the code used here:
+```{r, message=FALSE, warning = FALSE, results ='hide'}
+purl("endnotes.Rmd")
+```
 
 \# end

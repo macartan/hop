@@ -5,7 +5,7 @@
 \title{Plot best reactions for two person normal form games}
 \usage{
 gt_brgraph(X, Y = t(X), players = c("Row", "Col"), PR = players[1],
-  P1 = players[2], PC = "Col", P2 = PC, labelsR = c("C", "D"),
+  P1 = PR, PC = players[2], P2 = PC, labelsR = c("C", "D"),
   labels1 = labelsR, labelsC = labels1, labels2 = labelsC, legBR = TRUE,
   legr = TRUE, legc = TRUE, leglocBR = c(0.8, 0.2), legxyr = c(c(0.8, 3
   * (min(C) + max(C))/4)), legxyc = c(c(0.8, (min(C) + max(C))/4)),

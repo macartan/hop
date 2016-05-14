@@ -24,8 +24,10 @@ gt_sss_mat <- function(e=.1) matrix(c(1 - e, (1 - e) / 3, 0, 0,
 #' gt_sss()
 
 gt_sss <- function(mat = gt_sss_mat,
-                   e=1,
-                   t=1,
+                   error = 1,
+                   e=error,
+                   periods = 1,
+                   t=periods,
                    cex.pt = 8,
                    ann = TRUE,
                    mar = 1.5,

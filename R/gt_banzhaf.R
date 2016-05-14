@@ -22,8 +22,8 @@ gt_banzhaf <-  function(
 
 #' Plot Banzhaf index against normalized raw weights
 #'
-#' @param w Vector of voting weights
-#' @param q Threshold for voting success
+#' @param weights Vector of voting weights
+#' @param q_rule Threshold for voting success
 #' @param col1 Canvas color
 #' @param Line color
 #' @keywords Banzhaf, Decision Rules
@@ -33,8 +33,10 @@ gt_banzhaf <-  function(
 #'  gt_plot_banzhaf(w=c(1, 1, 3,7,9,9)/30, q = .5, col1 = "black")
 
 gt_plot_banzhaf <- function(
-  w,
-  q,
+  weights = c(1,1),
+  w = weights,
+  q_rule = .5,
+  q = q_rule,
   col1="red",
   col2="white"
   ){	                             # Define plotting function

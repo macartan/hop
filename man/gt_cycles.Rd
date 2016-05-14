@@ -4,9 +4,10 @@
 \alias{gt_cycles}
 \title{Calculate and plot chaotic cycles}
 \usage{
-gt_cycles(n, k, seed = 1, z = 3, col1 = "red", coli = "black",
-  colp = "red", pointcex = 0.5, xlab = "Issue 1", ylab = "Issue 2",
-  ann = TRUE, axes = TRUE, a2z = FALSE, a2zcol = "red", a2zw = 2,
+gt_cycles(n_voters = 3, n = n_voters, n_motions = 3, k = n_motions,
+  seed = 1, z = 3, col1 = "red", coli = "black", colp = "red",
+  pointcex = 0.5, xlab = "Issue 1", ylab = "Issue 2", ann = TRUE,
+  axes = TRUE, a2z = FALSE, a2zcol = "red", a2zw = 2,
   a2zclose = 0.025, alab = "", zlab = "", inner = FALSE,
   colrange = rep(col1, k), col2 = colrange[k], mar = rep(2, 4))
 }

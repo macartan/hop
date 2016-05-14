@@ -4,17 +4,16 @@
 \alias{gt_coase}
 \title{Plot Coase Theorem Illustrations}
 \usage{
-gt_coase(f = function(x) {     1 - x }, matrix = FALSE, X = matrix(c(2, 3,
-  0, 1), 2), Y = t(X), pointsize = 1, SQ = c(ifelse(matrix,
-  gt_minimax(X)[[1]], 0), ifelse(matrix, gt_minimax(t(Y))[[1]], 0)),
-  lab_SQ = TRUE, SQ_lab = "SQ", feasible = TRUE, bargain = FALSE,
-  xlim = c(ifelse(matrix, min(X, Y), 0), ifelse(matrix, max(X, Y), 1.65)),
-  ylim = xlim, xlab = expression(italic(u)[1]),
-  ylab = expression(italic(u)[2]), main = "", mainsize = 1,
-  addarrows = TRUE, figtitle = "", col1 = "red", col2 = "pink",
-  col1b = col1, col2b = col2, arrcol = "black", offs = 0.1,
-  textsz = 1, length = 0.1, axes = FALSE, mar = 2 * c(1, 1, 1, 1),
-  mgpY = c(1, 1, 0), mgpX = c(1, 1, 0))
+gt_coase(f = function(x) {     1 - x }, X = NULL, Y = t(X),
+  pointsize = 1, SQ = c(0, 0), lab_SQ = TRUE, SQ_lab = "SQ",
+  feasible = TRUE, bargain = FALSE, xlim = c(ifelse(matrix, min(X, Y), 0),
+  ifelse(matrix, max(X, Y), 1.65)), ylim = xlim,
+  xlab = expression(italic(u)[1]), ylab = expression(italic(u)[2]),
+  main = "", mainsize = 1, addarrows = TRUE, figtitle = "",
+  col1 = "red", col2 = "pink", col1b = col1, col2b = col2,
+  arrcol = "black", offs = 0.1, textsz = 1, length = 0.1,
+  axes = FALSE, mar = 2 * c(1, 1, 1, 1), mgpY = c(1, 1, 0), mgpX = c(1,
+  1, 0))
 }
 \arguments{
 \item{f}{Function that mpas a possibility frontier}

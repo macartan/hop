@@ -18,8 +18,10 @@
 
 
 gt_cycles = function(
-  n,
-  k,
+  n_voters = 3,
+  n = n_voters,
+  n_motions = 3,
+  k = n_motions,
   seed = 1,
   z = 3,
 	col1="red",  # color or path

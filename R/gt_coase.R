@@ -16,10 +16,9 @@
 
 
 gt_coase = function(f=function(x) {1-x},
-                    matrix=FALSE,
-                    X=matrix(c(2,3,0,1),2), Y=t(X),
+                    X=NULL, Y=t(X),
                     pointsize = 1,
-			SQ=c(ifelse(matrix, gt_minimax(X)[[1]], 0), ifelse(matrix, gt_minimax(t(Y))[[1]], 0)),
+			SQ=c(0,0),
 			lab_SQ=TRUE,
 			SQ_lab = "SQ",
 			feasible=TRUE,
@@ -43,6 +42,10 @@ gt_coase = function(f=function(x) {1-x},
 			mar=2*c(1,1,1,1),
 			mgpY=c(1,1,0),
 			mgpX=c(1,1,0)){
+
+if(!is.null(X)) {matrix <- TRUE} else {matrix <- FALSE}
+if(is.null(X) & SQ == "minimax") stop("minimax currently supported for matrix game only")
+if(!is.null(X) & SQ == "minimax") SQ <- c(gt_minimax(X)[[1]], gt_minimax(t(Y))[[1]])
 
 par(mar=mar)
 

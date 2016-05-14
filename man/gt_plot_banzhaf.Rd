@@ -4,12 +4,13 @@
 \alias{gt_plot_banzhaf}
 \title{Plot Banzhaf index against normalized raw weights}
 \usage{
-gt_plot_banzhaf(w, q, col1 = "red", col2 = "white")
+gt_plot_banzhaf(weights = c(1, 1), w = weights, q_rule = 0.5,
+  q = q_rule, col1 = "red", col2 = "white")
 }
 \arguments{
-\item{w}{Vector of voting weights}
+\item{weights}{Vector of voting weights}
 
-\item{q}{Threshold for voting success}
+\item{q_rule}{Threshold for voting success}
 
 \item{col1}{Canvas color}
 
