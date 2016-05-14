@@ -4,21 +4,36 @@
 \alias{gt_brgraph}
 \title{Plot best reactions for two person normal form games}
 \usage{
-gt_brgraph(R, C = t(R), PR = "Row player", PC = "Column Player",
-  labelsR = c("C", "D"), labelsC = labelsR, legBR = TRUE, legr = TRUE,
-  legc = TRUE, leglocBR = c(0.8, 0.2), legxyr = c(c(0.8, 3 * (min(C) +
-  max(C))/4)), legxyc = c(c(0.8, (min(C) + max(C))/4)), ulegend = TRUE,
-  BR = TRUE, draw1 = TRUE, draw2 = TRUE, vert = TRUE, util = FALSE,
-  Rloc = NULL, Cloc = NULL, ur = TRUE, uc = TRUE, cthighlight = FALSE,
+gt_brgraph(X, Y = t(X), players = c("Row", "Col"), PR = players[1],
+  P1 = players[2], PC = "Col", P2 = PC, labelsR = c("C", "D"),
+  labels1 = labelsR, labelsC = labels1, labels2 = labelsC, legBR = TRUE,
+  legr = TRUE, legc = TRUE, leglocBR = c(0.8, 0.2), legxyr = c(c(0.8, 3
+  * (min(C) + max(C))/4)), legxyc = c(c(0.8, (min(C) + max(C))/4)),
+  ulegend = TRUE, BR = TRUE, br = BR, draw1 = TRUE, draw2 = TRUE,
+  vert = TRUE, util = FALSE, overrow = TRUE, Rloc = NULL, Cloc = NULL,
+  ur = TRUE, u1 = ur, uc = TRUE, u2 = uc, cthighlight = FALSE,
   rthighlight = FALSE, cbhighlight = FALSE, rbhighlight = FALSE,
-  mmcol = "turquoise", xlabu = paste("Probability on", labelsC[1], "for",
-  PC), ylabu = paste("Utility for", PR), legtextr = c(paste("u(",
-  labelsR[1], ")", sep = ""), paste("u(", labelsR[2], ")", sep = "")),
-  legtextc = c(paste("u(", labelsC[2], ")", sep = ""), paste("u(", labelsC[1],
-  ")", sep = "")), mainbr = "", mainu = "", colown = "red",
-  coloth = gray(0.4), hl_lwd = 8, lwd = 2)
+  colr = "red", colc = gray(0.4), col1 = colr, col2 = colc,
+  mmcol_r = "pink", mmcol_c = grey(0.8), mmcol_1 = mmcol_r,
+  mmcol_2 = mmcol_c, xlabu = paste("Probability on", labelsR[1], "for", PR),
+  ylabu = NULL, legtextr = c(paste(PR, "'s utility | ", PC, " plays ",
+  labelsC[1], ")", sep = ""), paste(PR, "'s utility | ", PC, " plays ",
+  labelsC[2], ")", sep = "")), legtextc = c(paste(PC, "'s utility | ", PC,
+  " plays ", labelsC[1], ")", sep = ""), paste(PC, "'s utility | ", PC,
+  " plays ", labelsC[2], ")", sep = "")), mainbr = "", mainu = "",
+  hl_lwd = 8, lwd = 2)
 }
 \arguments{
+\item{PR}{Name of row player}
+
+\item{P1}{alternative argument for Row Name}
+
+\item{PC}{Name of column player}
+
+\item{P2}{alternative argument for Col Name}
+
+\item{overrow}{Switch to have utilty plots plotted over row player (player 1)}
+
 \item{R}{Row payoffs}
 
 \item{C}{Column payoffs}
@@ -32,6 +47,14 @@ with output either aligned horizontally or vertically, using \code{vert}.
 C <- matrix(c(1,0,0,1),2,2)
 R <- matrix(c(1,0,0,1),2,2)
 gt_brgraph(R, C, PR="Country R", PC="Country C", leglocBR=c(.8,.2))
+# A chicken game:
+
+gt_brgraph(Chicken, BR = FALSE, util = TRUE,
+  cthighlight = TRUE, rthighlight = TRUE,
+  labelsC = c("Jill A", "Jill B"),
+  labelsC = c("Jack A", "Jack B"),
+  ur = TRUE,
+  PC = "Jill", PR = "Jack")
 }
 \keyword{Best}
 \keyword{Nash,}

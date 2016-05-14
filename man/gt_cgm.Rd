@@ -2,7 +2,7 @@
 % Please edit documentation in R/gt_cgm.R
 \name{gt_cgm}
 \alias{gt_cgm}
-\title{Clarke-Groves Mechanism.}
+\title{Plot Clarke-Groves Mechanism.}
 \usage{
 gt_cgm(select = function(i, j) (i + j)^2/4, theta1 = 0.6, theta2 = 0.3,
   normalize = TRUE, normalizevalue = 100, u = function(x, theta) theta *

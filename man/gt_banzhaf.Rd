@@ -12,7 +12,8 @@ gt_banzhaf(w, q = 0.5)
 \item{q}{Threshold for voting success}
 }
 \description{
-We generate a function for calculating the Banzhaf index and apply it to two different ?q-rules? for Nassau county data. The Banzhaf function can be defined in this way for any rule using this approach. +1 for decisive coalitions, -1 otherwise
+Function for calculating the Banzhaf index.
+Done by taking all coalitions and adding +1 for decisive coalitions, -1 otherwise
 }
 \examples{
  gt_banzhaf(w = 1:5, q=.5)

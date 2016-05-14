@@ -5,7 +5,7 @@
 \title{Helper to make best response arrows for bimatrix}
 \usage{
 gt_BRarrow(X, Y, vert = FALSE, arrowdist = 0.2, space = 0.15,
-  color = gray(0.3), nash = TRUE, width = 3)
+  color = gray(0.3), nash = TRUE, width = 3, alength = 0.25)
 }
 \arguments{
 \item{X}{x coordinated for arrow}

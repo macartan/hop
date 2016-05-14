@@ -1,80 +1,91 @@
-
 #' Payoff Matrix
 #'
-#' This function helps you plot a payoff matrix and identify pure strategy Nash equilibria. Credit for base code: Neelanjan Sircar
+#' This function helps you plot a payoff matrix and identify pure strategy Nash equilibria.
+#' Used for two player normal form games and finite, though possibly different, strategy sets.
+#' Credit for base code: Neelanjan Sircar
 #' @param X Payoff matrix for player 1. Defaults to coordination.
 #' @param Y Payoff matrix for player 2. Defaults to coordination.
+#' @param P1 name of player 1 (row)
+#' @param P2 Name of player 2 (column)
+#' @param labels1 Names of strategies for player 1
+#' @param labels2 Names of strategies for player 2
+#' @param labelsize Size of labels
+#' @param arrow1 draw response arrows for player 1
+#' @param arrow2 draw response arrows for player 2
+#' @param arrow1col color of best response arrows; same for arrow2col
+#' @param width1 Width of arrows; same for width2
+#' @param nash mark the Nash equilibrium, if there are any
+#' @param alength length of arrow head, defaults to .25
 #' @keywords Payoff matrix, Nash
 #' @export
 #' @examples
 #' M1 <- matrix(1:12, 3, 4)
 #' gt_bimatrix(M1, M1, labels1 =paste(1:3), labels2 = paste(1:4), main = "Asymmetric", mainline = -1)
-#'
-
-
-# plots bimatrix and shades pure strat NE whereX and Y are 2x2 payoff matrices, and c is scale parameter for how big the text should be,
-# plotstyle can be "s"or "m" where "s" uses square plotting and "m" uses maximal area plotting
-# srt1,2 Turns the writing on the player labels
-# u scale parameter for utility labels
-# matrixfill=gray(.9), numcol="black", gameborder=T, bordercol="white", borderdim = NULL,
-# main : plot title
-# tscale : scaling parameter to control all labels
-# offset1=c(.8,.8), offset2=c(.2,.2), arrowdist=.15, radius=.2, space=max(arrowdist, radius+.075),
-# arrow1=TRUE, arrow2=TRUE,
-# arrow1col=gray(.4), arrow2col=gray(.4),
-# width1=3, width2=3,
-# nash=T, nashcol=gray(.6), nashborder="black",
-# labels1=NULL, labels2=NULL, labelsize=NULL, p1="Player 1", p2="Player 2", playersize=NULL, labelsdim = NULL, pdim =NULL){
+#' # Here is a more conservative style:
+#' gt_bimatrix(matrix(c(1,0,0,0), 2, 2),
+#'             labels1 = c("U","D"), labels2 = c("L","R"),
+#'             pty = "m", matrixfill=NULL, nash = FALSE, arrow1= FALSE,
+#'             asp = .45, tfont = "serif", tscale = .8)
 
 gt_bimatrix <- function(
-  X = matrix(c(1,0,0,1),2),              # Payoff matrix
-  Y=t(X),
-  P1="Player 1",
-  P2="Player 2",
-  labels1 = NULL,
-  labels2 = NULL,
-  labelsize=NULL,
-  u=NULL,
-  pty="s",
-  srt1=0,
-  srt2=0,
-  mar=c(.7,.7,.7,.7),
-  matrixfill=gray(.7),
-  pcol1="black",
-  pcol2=pcol1,     # player colors
-  numcol1=pcol1,
-  numcol2=pcol2,   # payoff colors
-  scol1=pcol1,
-  scol2=pcol2,     #strategy colors
-  gameborder=TRUE,
-  bordercol="white",
-  borderdim = NULL,
-  lwd=3,
-  offset1=c(.8,.8),
-  offset2=c(.2,.2),
-  arrow1=TRUE,
-  arrow2=arrow1,
-  arrow1col=gray(.4),
-  arrow2col=arrow1col,
-  width1=3,
-  width2=width1,
-  arrowdist=.2,
-  space=max(arrowdist, radius+.075),
-  nash=TRUE,
-  radius=.2,
-  starfill="red",
-  starborderlwd = 2, # Thickness of border of Nash star
-  tips=8,
-  nashborder="black",
-  playersize=NULL,
-  labelsdim = NULL,
-  pdim =NULL,
-  tscale=1,
-  main="",
-  tfont=NULL,
-  maincex=1,
-  col.main="red",
-  mainline= -.5  # Arguments for plot title
+  # Payoff matrix
+    X = matrix(c(1,0,0,1),2),
+    Y=t(X),
+    P1="Player 1",
+    P2="Player 2",
+    labels1 = NULL,
+    labels2 = NULL,
+    labelsize=NULL,
+  # Arrows
+    arrow1=TRUE,
+    arrow2=arrow1,
+    arrow1col=gray(.4),
+    arrow2col=arrow1col,
+    width1=3,
+    width2=width1,
+    arrowdist=.2,
+    alength = .25,
+    space=max(arrowdist, radius+.075),
+  # Nash
+    nash=TRUE,
+    radius=.2,
+    starfill="red",
+    starborderlwd = 1.5, # Thickness of border of Nash star
+    tips=8,
+    nashborder="black",
+  # Formating
+    tfont=NULL,
+    pty="s",
+    asp = NULL,
+    srt1=0,
+    srt2=0,
+    mar=c(.7,.7,.7,.7),
+  # Colors
+    matrixfill=gray(.7),
+    pcol1="black",
+    pcol2=pcol1,     # player colors
+    numcol1=pcol1,
+    numcol2=pcol2,   # payoff colors
+    scol1=pcol1,
+    scol2=pcol2,     #strategy colors
+    col.main="red",
+    bordercol="white",
+  # Lines
+    gameborder=TRUE,
+    borderdim = NULL,
+    lwd=1.5,
+    offset1=c(.8,.8),
+    offset2=c(.2,.2),
+  # Scales
+    u=NULL,
+    playersize=NULL,
+    labelsdim = NULL,
+    pdim =NULL,
+    tscale=1,  # scale text
+    maincex=1,
+  # Arguments for plot title
+     main="",
+     mainline= -.5
 ){
 
   if(!is.null(labels1)) labels2sub <- labels1
@@ -96,7 +107,8 @@ gt_bimatrix <- function(
 
   # Start Graph
   par(pty=pty, mar=mar)
-  plot(1,1, xlim=c(borderdim[1],ncol(X)+.1), ylim=c(-0.1,nrow(X)+borderdim[2]), ann=F, axes=F, asp=par("pin")[1]/par("pin")[2], type="n")
+  if(is.null(asp)) asp <- par("pin")[1]/par("pin")[2]
+  plot(1,1, xlim=c(borderdim[1],ncol(X)+.1), ylim=c(-0.1,nrow(X)+borderdim[2]), ann=F, axes=F, asp=asp, type="n")
   title(main=main, cex.main = maincex, col.main=col.main, line = mainline)
   if(gameborder) polygon(c(borderdim[1],borderdim[1], ncol(X)+.1, ncol(X)+.1, borderdim[1]), c(-.1, nrow(X)+ borderdim[2], nrow(X)+borderdim[2], -.1, -.1), col=bordercol, border=NA)
   polygon(c(0,ncol(X),ncol(X),0), c(0,0,nrow(X),nrow(X)), lwd=lwd, col=matrixfill)
@@ -122,8 +134,8 @@ gt_bimatrix <- function(
   text(pdim[1], nrow(X)/2, P1, cex=playersize, srt=90, family=tfont, font=2, col=pcol1)
   text(ncol(X)/2, nrow(X)+ pdim[2], P2, cex=playersize, family=tfont, font=2, col=pcol2)
 
-  if (arrow1) gt_BRarrow(X,Y,space=space, nash=nash, color=arrow1col, width=width1, arrowdist=arrowdist)
-  if (arrow2) gt_BRarrow(X,Y,space=space, nash=nash, color=arrow2col, width=width2,  arrowdist=arrowdist, vert=TRUE)
+  if (arrow1) gt_BRarrow(X,Y,space=space, nash=nash, color=arrow1col, width=width1,  arrowdist=arrowdist, alength = alength)
+  if (arrow2) gt_BRarrow(X,Y,space=space, nash=nash, color=arrow2col, width=width2,  arrowdist=arrowdist, vert=TRUE, alength = alength)
 
   pureNEx <- array(NA, c(nrow(X), ncol(X)))
   pureNEy = pureNEx
@@ -133,11 +145,7 @@ gt_bimatrix <- function(
       pureNEx[i,j] <- ifelse((X[i,j]==max(X[,j]) & (Y[i,j]==max(Y[i,]))),j-.5, NA)
       pureNEy[i,j] <- ifelse((X[i,j]==max(X[,j]) & (Y[i,j]==max(Y[i,]))),nrow(X)-i+.5, NA)
     }}
-  if (nash) gt_star(as.vector(pureNEx), as.vector(pureNEy), rad=radius, phi=0, starfill=starfill, tips=tips, starborderlwd=starborderlwd)
+  if (nash) gt_star(as.vector(pureNEx), as.vector(pureNEy),
+                    rad=radius, phi=0, starfill=starfill, tips=tips,
+                    starborderlwd=starborderlwd)
 }
-
-
-# Example of asymmetric matrix
-#M1 = matrix(1:12, 3, 4)
-#gt_bimatrix(M1, M1, labels1 =paste(1:3), labels2 = paste(1:4), main = "Asymmetric", mainline = -1
-#            )

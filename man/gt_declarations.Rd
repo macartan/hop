@@ -2,7 +2,7 @@
 % Please edit documentation in R/gt_declarations.R
 \name{gt_declarations}
 \alias{gt_declarations}
-\title{Cascade}
+\title{Calculated declarations from an Information Cascade}
 \usage{
 gt_declarations(x)
 }

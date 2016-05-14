@@ -10,13 +10,17 @@ gt_plot_banzhaf(w, q, col1 = "red", col2 = "white")
 \item{w}{Vector of voting weights}
 
 \item{q}{Threshold for voting success}
+
+\item{col1}{Canvas color}
+
+\item{Line}{color}
 }
 \description{
 Plot Banzhaf index against normalized raw weights
 }
 \examples{
  gt_plot_banzhaf(w = 1:5, q=.5)
- gt_plot_banzhaf(w=c(1, 1, 3,7,9,9)/30, q = .5)
+ gt_plot_banzhaf(w=c(1, 1, 3,7,9,9)/30, q = .5, col1 = "black")
 }
 \keyword{Banzhaf,}
 \keyword{Decision}

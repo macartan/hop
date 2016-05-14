@@ -2,7 +2,7 @@
 % Please edit documentation in R/gt_cycles.R
 \name{gt_cycles}
 \alias{gt_cycles}
-\title{Chaotic cycles}
+\title{Calculate and plot chaotic cycles}
 \usage{
 gt_cycles(n, k, seed = 1, z = 3, col1 = "red", coli = "black",
   colp = "red", pointcex = 0.5, xlab = "Issue 1", ylab = "Issue 2",

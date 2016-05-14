@@ -1,5 +1,5 @@
 
-#' Clarke-Groves Mechanism.
+#' Plot Clarke-Groves Mechanism.
 #'
 #' Utility for public good is of the form u(x | theta_i) = theta_i*x^.5 - t_i. Default cost equals amount produced, say.  Consider two games. In one each is charged x/2. In the other VCG transfers are used.  Games solved as normal form games (as if in fact players know the other's preferences, even if mechanism does not)
 #' @param theta1 Player 1's valuation
@@ -48,7 +48,7 @@ gt_cgm = function(
   ## PRODUCTION AND COSTS
   mar = rep(4,4)
   gt_brcplot(n.grid=n.grid,
-             u1 = V, type="br",
+             u1 = V, type="br", cont = TRUE,
              toptitle = "Optimal Public Goods Production",
              surface_br_pointtype = "n",
              clevels = clevels,
@@ -67,7 +67,7 @@ gt_cgm = function(
              u1 = function(a1,a2) C(a1,a2)/2,
              u2 = function(a1,a2) -transfer(a1,a2),
              type="br", toptitle = "Costs",
-             surface_br_pointtype = "n",
+             surface_br_pointtype = "n",  cont = TRUE,
              clevels = clevels,
              col1 = "black", col2 = "red",
              col1v = NULL, col2v = NULL,
@@ -99,7 +99,7 @@ gt_cgm = function(
              col2 = "grey",
              col2br = "black",
              col2v = "black",
-             nash = TRUE
+             nash = TRUE, cont = TRUE
 
   )
 
@@ -123,7 +123,7 @@ gt_cgm = function(
              col2 = "grey",
              col2br = "black",
              col2v = "black",
-             nash = TRUE
+             nash = TRUE, cont = TRUE
   )
 
   if(addpoint) points(theta1,theta2, col = "red", pch = 21)

@@ -1,4 +1,4 @@
-#' Condorcet jury theorem.
+#' Condorcet jury theorem illustration
 #'
 #' Illustrates basic logic from law of large numbers.
 #' @param n number of voters

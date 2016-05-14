@@ -4,16 +4,20 @@
 \alias{gt_nbs}
 \title{Nash bargaining solution}
 \usage{
-gt_nbs(u1 = function(x) x^0.5, u2 = function(x) (1 - x),
-  solution_only = FALSE, setcol = "red", flatcol = "grey", length = 500,
-  xtop = 1, xlim = c(0, xtop), ylim = xlim, alt = NULL,
-  altlab = FALSE, paretoset_border = NA, NBScol = "black",
-  diagonal = TRUE, at = c(0, 1))
+gt_nbs(u1 = function(x) x^0.5, u2 = function(x) (1 - x), matrix = FALSE,
+  X = matrix(c(3, 4, 2, 1), 2, 2), Y = t(X), SQ = c(0, 0),
+  solution_only = FALSE, setcol = "red", flatcol = "grey",
+  hullcolor = grey(0.5), pointsize = 1, length = 1000, xtop = 1,
+  xlim = NULL, ylim = NULL, alt = NULL, altlab = FALSE,
+  paretoset_border = NA, NBScol = "black", diagonal = TRUE, at = c(0,
+  1), origin = TRUE)
 }
 \arguments{
 \item{u1}{a function, increasing in x}
 
 \item{u2}{a function, decreasing in x}
+
+\item{matrix}{if TRUE payof matrix expected rather than function, SQ may be set manullay or minimax assumed}
 
 \item{solution_only}{Just show solution}
 }
@@ -22,6 +26,7 @@ Nash bargaining solution
 }
 \examples{
  gt_nbs(u1 = function(x) x^.5, u2 = function (x) 1 - x)
+ gt_nbs(matrix  = TRUE, solution_only = TRUE)
 }
 \keyword{Nash}
 \keyword{bargaining}

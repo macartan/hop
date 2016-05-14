@@ -1,5 +1,5 @@
 
-#' Cascade
+#' Calculated declarations from an Information Cascade
 #'
 #' A  cascade  can  also  form,  for  example,  if  the  first  two  decisions  differ  and  the  next  two  match. In  all  cases,  it  takes  an  imbalance  of  two  de-  cisions  in  one  direction  to  overpower  the  informational  content  of  subsequent  individual  signals. PosteriorFunction to figure if you should say Yes or no given a string with n relevant Yeses and m relevant no's
 #' @param x Vector with signals received

@@ -1,9 +1,9 @@
-#' Coase Theorem
+#' Plot Coase Theorem Illustrations
 #'
 #' gt_coase plots the utility possibility set either from a bimatrix game or from a utlity possibility set paramaterized by pareto frontier f
 #' @param f Function that mpas a possibility frontier
 #' @param X Payoff matrix
-#' @param SQ status quo outcome
+#' @param SQ status quo outcome: defaults to minimax when game matrix provided
 #' @param feasible Include efasible set
 #' @param bargain Include bargaining set
 #' @keywords Coase Theorem
@@ -15,15 +15,18 @@
 #' gt.coase(X=matrix(c(2,3,0,1),2), matrix=TRUE, feasible=TRUE,  bargain = TRUE)
 
 
-gt_coase = function(f=function(x) {1-x}, matrix=FALSE, X=matrix(c(2,3,0,1),2), Y=t(X),
+gt_coase = function(f=function(x) {1-x},
+                    matrix=FALSE,
+                    X=matrix(c(2,3,0,1),2), Y=t(X),
+                    pointsize = 1,
 			SQ=c(ifelse(matrix, gt_minimax(X)[[1]], 0), ifelse(matrix, gt_minimax(t(Y))[[1]], 0)),
 			lab_SQ=TRUE,
 			SQ_lab = "SQ",
 			feasible=TRUE,
 			bargain = FALSE,
 			xlim=c(ifelse(matrix, min(X,Y), 0),ifelse(matrix, max(X,Y), 1.65)), ylim=xlim,
-			xlab=expression(u[1]),
-			ylab=expression(u[2]),
+			xlab=expression(italic(u)[1]),
+			ylab=expression(italic(u)[2]),
 			main="",
 			mainsize=1,
 			addarrows=TRUE,
@@ -44,16 +47,17 @@ gt_coase = function(f=function(x) {1-x}, matrix=FALSE, X=matrix(c(2,3,0,1),2), Y
 par(mar=mar)
 
 if(matrix){Z=matrix(c(X, Y), ncol=2)
-			opt = Z[Z[,1]+Z[,2] == max(Z[,1]+Z[,2])]
-			frontier = opt[1]
-			z = sum(opt)
+			opt = Z[Z[,1]+Z[,2] == max(Z[,1]+Z[,2]),]
+      if(!is.null(nrow(opt))) opt <- opt[1,]
+			z = max(Z[,1]+Z[,2])
 			plot(Z, xlab=xlab, ylab=ylab, main=main, cex.main=mainsize, xlim=xlim, ylim=ylim)
 			if(feasible){
 					# Feasible Set -- from correlated strategies
 					hpts <- chull(Z)
 					hpts <- c(hpts, hpts[1])
-#					polygon(Z[hpts, ], col=col1, border = col1b)
-					}
+					polygon(Z[hpts, ], col=col1, border = col1b)
+			}
+			points(Z, pch=19, cex=pointsize)
 			}
 
 if(!matrix){

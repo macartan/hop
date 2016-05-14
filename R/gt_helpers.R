@@ -29,7 +29,8 @@ gt_BRarrow <- function(
   space=.15,
   color=gray(.3),
   nash=TRUE,
-  width=3
+  width=3,
+  alength = .25
   ){
   d <- array(arrowdist, c(nrow(X),ncol(X))); numarrow1 <- rep(NA, nrow(Y)); numarrow2 <- rep(NA, ncol(Y)) ##summarizing arrow info
   for (i in 1:nrow(Y)){
@@ -50,109 +51,15 @@ gt_BRarrow <- function(
         }}}
     r <- sum(!is.na(A))  ## number of arrows
     if (r!=0) {
-      if (!vert) arrows((na.omit(as.vector(A))),gt_shift((nrow(X)-i+.5),r, .3/r) - .15/r*(r%%2==0), na.omit(as.vector(B)),gt_shift((nrow(X)-i+.5),r, .3/r) - .15/r*(r%%2==0), lwd=width, col=color, angle=35/num)
-      if (vert) arrows(as.vector(gt_shift((i-.5),r, .3/r))- .15/r*(r%%2==0), na.omit(as.vector(A)), as.vector(gt_shift((i-.5),r, .3/r)) - .15/r*(r%%2==0), na.omit(as.vector(B)), lwd=width, col=color, angle=35/num)}
+      if (!vert) arrows((na.omit(as.vector(A))),gt_shift((nrow(X)-i+.5),r, .3/r) - .15/r*(r%%2==0), na.omit(as.vector(B)),gt_shift((nrow(X)-i+.5),r, .3/r) - .15/r*(r%%2==0), lwd=width, col=color, angle=35/num, length = alength)
+      if (vert) arrows(as.vector(gt_shift((i-.5),r, .3/r))- .15/r*(r%%2==0), na.omit(as.vector(A)), as.vector(gt_shift((i-.5),r, .3/r)) - .15/r*(r%%2==0), na.omit(as.vector(B)), lwd=width, col=color, angle=35/num, length = alength)}
   }
  }
 
 
-#' Helper to draw stars
-#'
-#' A function to draw stars
-#' @param tips number of points
-#' @keywords stars
-#' @examples
-#' gt_star()
-gt_star <- function(
-  x,                     # x coordinate
-  y,                     # y coordinate
-  rad=1,                 # radius
-  phi=0,                 # rotation of stars (counter-clockwise, radians),
-  starfill="turquoise",  # color inside star
-  outer="black",         # color of border
-  tips=8,                # tips
-  starborderlwd = 3      # star border
-  ){
-  if (length(x)!=length(y)) stop("Vector lengths of x and y are different")
-  for (i in 1:length(x)){
-      polygon(rad*c(rep(c(1,.5),tips),1)*cos(seq(0,2,1/tips)*pi + pi/2 + phi)+x[i],
-              rad*c(rep(c(1,.5),tips),1)*sin(seq(0,2,1/tips)*pi + pi/2 +phi) + y[i],
-              col=starfill,
-              border=outer,
-              lwd=starborderlwd)
-    }
-  }
 
 
-# Helper to make text more visible
-# Credit: Greg Snow http://blog.revolutionanalytics.com/2009/05/make-text-stand-out-with-outlines.html
-#
 
-#' Shadow text
-#'
-#' Place a shadow behind text (white default)
-#'
-#' @param x X location
-#' @keywords text
-#' @examples
-#' gt_shadowtext()
-gt_shadowtext <- function(x,
-                          y=NULL,
-                          labels,
-                          col='black',
-                          bg='white',
-                          theta= seq(pi/4, 2*pi,
-                          length.out=8),
-                          r=0.1, ... ) {
-  xy <- xy.coords(x,y)
-  xo <- r*strwidth('A')
-  yo <- r*strheight('A')
-  for (i in theta) {
-    text( xy$x + cos(i)*xo, xy$y + sin(i)*yo,
-          labels, col=bg, ... )
-  }
-  text(xy$x, xy$y, labels, col=col, ... )
-}
-
-
-#' Helper to slope text
-#'
-#' Note angle is a bit messy because of aspect ratios; fixer can be used to adjust
-#' @param labels text
-#' @keywords text
-#' @examples
-#' gt_slope_text()
-gt_slope_text = function(labels, f, xl=0, xh=1, vshift=.05, col="black", fixer=1, pos = NULL, adj = c(.5,0),
-                         cex = 1,
-                         shadow = TRUE,
-                         shade = "white" # for shadow
-){
-  ft <- text
-  if(shadow) ft <- function( ... ) gt_shadowtext(bg = shade, ...)
-  TX = c(" ", strsplit(labels, "")[[1]]," ")
-  k = length(TX)
-  z = xl + ((0:(k-1))/k)*(xh-xl)
-  angles = 	c(
-    0,
-    (
-      atan2(
-        f(z)[3:k] - f(z)[1:(k-2)],
-        fixer * 2 * (xh - xl) / (k)
-      ) * 180 / pi
-    ),
-    0
-  )
-
-  for(i in 1:k){ft(
-    x=z[i],
-    y=f(z[i])+vshift,
-    labels=TX[i],
-    col = col,
-    srt=angles[i],
-    pos = pos,
-    adj = adj,
-    cex = cex)}
-}
 
 #' Drawing a curve
 #'
@@ -199,6 +106,7 @@ gt_curve = function(cx=0,
 #'
 #' @param v a vector giving number of elements in each variable
 #' @keywords permutations
+#' @export
 #' @examples
 #' gt_permv(c(2,3))
 gt_permv <- function(v) {

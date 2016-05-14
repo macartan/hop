@@ -9,15 +9,15 @@ gt_brcplot(n.grid = 100, s1 = 0.01, s2 = 0.99, a1 = seq(s1, s2, length =
   u2 = function(a1, a2) {     -u1(a1, a2) }, nash = TRUE,
   starfill = "pink", tips = 8, nashborder = "black", markbr = FALSE,
   starfill2 = "red", radius = dist(range(a1))/30, border = NA,
-  tol = 0.001, type = "surface", player = 1, cont = TRUE,
+  tol = 0.001, type = "surface", player = 1, cont = FALSE,
   screen = list(z = -245, x = -75), clevels = 10, brtype = "l",
   brcex1 = 0.5, brcex2 = 0.4, brpch = 21, brlwd = 1, BRI = FALSE,
-  pch1 = 21, pch2 = 21, col1 = "turquoise", col1br = "blue",
-  col1v = rgb(0, 1, 0, 1), col2 = "grey", col2br = "red",
-  col2v = rgb(0.5, 0, 0.5, 1), colbg1br = "white", colbg2br = "white",
-  canvascolor = "red", xlab = expression(a[1]), ylab = expression(a[2]),
-  zlab = "U", toptitle = paste("best response plot"),
-  surface_br_pointtype = "l", at_axis = c(0, 0.5, 1))
+  pch1 = 1, pch2 = 21, col1 = "turquoise", col1br = "red",
+  col1v = "black", col2 = "grey", col2br = "red", col2v = "black",
+  colbg1br = "white", colbg2br = "white", canvascolor = "white",
+  xlab = expression(a[1]), ylab = expression(a[2]), zlab = "U",
+  toptitle = paste("best response plot"), surface_br_pointtype = "l",
+  at_axis = c(0, 0.5, 1), boxit = TRUE)
 }
 \arguments{
 \item{u1}{Player 1's utility}
@@ -29,6 +29,8 @@ Function for plotting utilities for  games in which two players can each choose 
 }
 \examples{
  gt_brcplot()
+
+
 }
 \keyword{Best}
 \keyword{plot}

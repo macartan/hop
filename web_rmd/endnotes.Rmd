@@ -1,5 +1,4 @@
 ---
-title: 'Political Games: Endnotes'
 output:
   html_document:
     highlight: tango
@@ -9,7 +8,7 @@ output:
     fig_height: 6.5
 ---
 
-These illustrations are suggested in the endnotes of *Political Games*. 
+These illustrations are suggested in the endnotes of *Political Games*. This document sets up the code and implements all these analyses. You can replicate--or modify--any figure using the code fragments below.
 
 ```{r include=FALSE, cache=FALSE}
 rm(list=ls(all=TRUE))
