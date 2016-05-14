@@ -129,7 +129,7 @@ gt_plot_mr(e = .5, main = "Endowment = 0.5")
 ```
 
 Evolutionary stabilty (#47)
-```{r, fig.width=7, fig.height=7}
+```{r, fig.width=8, fig.height=8}
 gt_sss(error = 0, periods = 2)
 ```
 

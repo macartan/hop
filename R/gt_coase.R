@@ -44,8 +44,8 @@ gt_coase = function(f=function(x) {1-x},
 			mgpX=c(1,1,0)){
 
 if(!is.null(X)) {matrix <- TRUE} else {matrix <- FALSE}
-if(is.null(X) & SQ == "minimax") stop("minimax currently supported for matrix game only")
-if(!is.null(X) & SQ == "minimax") SQ <- c(gt_minimax(X)[[1]], gt_minimax(t(Y))[[1]])
+if((is.null(X)) & (length(SQ)== 1)) stop("Two dimensional SQ needed for non-matrix games")
+if(!is.null(X) & (SQ == "minimax")[1]) SQ <- c(gt_minimax(X)[[1]], gt_minimax(t(Y))[[1]])
 
 par(mar=mar)
 
