@@ -4,8 +4,9 @@
 \alias{gt_plot_mr}
 \title{Melzer Richard Illustration}
 \usage{
-gt_plot_mr(e, tax = seq(0, 1, 0.01), ymax = gt_mr_utility(gt_mr_maxu(e), e),
-  main = "", xlab = "", scale = 1, ylab = "", color = "grey",
+gt_plot_mr(endowment = 0.5, e = endowment, tax = seq(0, 1, 0.01),
+  ymax = gt_mr_utility(gt_mr_maxu(e), e), main = paste("Endowment =", e),
+  xlab = "", scale = 1, ylab = "", color = "grey",
   gt_mr_distribution = function(tax, e) tax * (1 - tax)/2,
   gt_mr_production = function(tax, e) (1 - tax)^2 * e/4,
   gt_mr_utility = function(tax, e) (gt_mr_distribution(tax, e) +

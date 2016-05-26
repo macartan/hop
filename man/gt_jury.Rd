@@ -4,9 +4,9 @@
 \alias{gt_jury}
 \title{Condorcet jury theorem illustration}
 \usage{
-gt_jury(n, fill = TRUE, bgcol = "grey", fillcol = "red",
-  fillcol2 = "white", base = 0.51, lwd = 1, xlim = c(-0.3, n + 0.3),
-  ...)
+gt_jury(n_voters, n = n_voters, fill = TRUE, bgcol = "grey",
+  fillcol = "red", fillcol2 = "white", probability_correct = 0.51,
+  base = probability_correct, lwd = 1, xlim = c(-0.3, n + 0.3), ...)
 }
 \arguments{
 \item{n}{number of voters}

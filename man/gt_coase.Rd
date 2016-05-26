@@ -4,7 +4,7 @@
 \alias{gt_coase}
 \title{Plot Coase Theorem Illustrations}
 \usage{
-gt_coase(f = function(x) {     1 - x }, X = NULL, Y = t(X),
+gt_coase(X = NULL, Y = t(X), f = function(x) {     1 - x },
   pointsize = 1, SQ = c(0, 0), lab_SQ = TRUE, SQ_lab = "SQ",
   feasible = TRUE, bargain = FALSE, xlim = c(ifelse(matrix, min(X, Y), 0),
   ifelse(matrix, max(X, Y), 1.65)), ylim = xlim,
@@ -16,9 +16,9 @@ gt_coase(f = function(x) {     1 - x }, X = NULL, Y = t(X),
   1, 0))
 }
 \arguments{
-\item{f}{Function that mpas a possibility frontier}
-
 \item{X}{Payoff matrix}
+
+\item{f}{Function that mpas a possibility frontier}
 
 \item{SQ}{status quo outcome: defaults to minimax when game matrix provided}
 

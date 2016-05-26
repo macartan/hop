@@ -57,7 +57,7 @@ gt_bimatrix <- function(
     tfont=NULL,
     pty="s",
     asp = NULL,
-    srt1=0,
+    srt1=90,
     srt2=0,
     mar=c(.7,.7,.7,.7),
   # Colors

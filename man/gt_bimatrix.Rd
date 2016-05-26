@@ -10,13 +10,14 @@ gt_bimatrix(X = matrix(c(1, 0, 0, 1), 2), Y = t(X), P1 = "Player 1",
   arrow2col = arrow1col, width1 = 3, width2 = width1, arrowdist = 0.2,
   alength = 0.25, space = max(arrowdist, radius + 0.075), nash = TRUE,
   radius = 0.2, starfill = "red", starborderlwd = 1.5, tips = 8,
-  nashborder = "black", tfont = NULL, pty = "s", asp = NULL, srt1 = 0,
-  srt2 = 0, mar = c(0.7, 0.7, 0.7, 0.7), matrixfill = gray(0.7),
-  pcol1 = "black", pcol2 = pcol1, numcol1 = pcol1, numcol2 = pcol2,
-  scol1 = pcol1, scol2 = pcol2, col.main = "red", bordercol = "white",
-  gameborder = TRUE, borderdim = NULL, lwd = 1.5, offset1 = c(0.8, 0.8),
-  offset2 = c(0.2, 0.2), u = NULL, playersize = NULL, labelsdim = NULL,
-  pdim = NULL, tscale = 1, maincex = 1, main = "", mainline = -0.5)
+  nashborder = "black", tfont = NULL, pty = "s", asp = NULL,
+  srt1 = 90, srt2 = 0, mar = c(0.7, 0.7, 0.7, 0.7),
+  matrixfill = gray(0.7), pcol1 = "black", pcol2 = pcol1,
+  numcol1 = pcol1, numcol2 = pcol2, scol1 = pcol1, scol2 = pcol2,
+  col.main = "red", bordercol = "white", gameborder = TRUE,
+  borderdim = NULL, lwd = 1.5, offset1 = c(0.8, 0.8), offset2 = c(0.2,
+  0.2), u = NULL, playersize = NULL, labelsdim = NULL, pdim = NULL,
+  tscale = 1, maincex = 1, main = "", mainline = -0.5)
 }
 \arguments{
 \item{X}{Payoff matrix for player 1. Defaults to coordination.}

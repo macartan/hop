@@ -14,10 +14,11 @@
 #' gt_plot_mr(e=.5, main = "Endowment = .5")
 
 
-gt_plot_mr <- function(e,
+gt_plot_mr <- function(endowment = .5,
+                       e = endowment,
                        tax = seq(0,1,.01),
                        ymax = gt_mr_utility(gt_mr_maxu(e), e),
-                       main = "",
+                       main = paste("Endowment =",e),
                        xlab = "",
                        scale = 1,
                        ylab="",

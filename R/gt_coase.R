@@ -15,8 +15,8 @@
 #' gt.coase(X=matrix(c(2,3,0,1),2), matrix=TRUE, feasible=TRUE,  bargain = TRUE)
 
 
-gt_coase = function(f=function(x) {1-x},
-                    X=NULL, Y=t(X),
+gt_coase = function(X=NULL, Y=t(X),
+                    f=function(x) {1-x},
                     pointsize = 1,
 			SQ=c(0,0),
 			lab_SQ=TRUE,

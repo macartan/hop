@@ -33,22 +33,22 @@ Some normal form games: PD (#1), with and without equilibrium marked
 ```{r}
 payoffs <-  matrix(c(2,3,0,1),2)
 gt_bimatrix(payoffs, labels1=c("C","D"))
-gt_bimatrix(payoffs, labels1=c("C","D"), nash=FALSE, arrow1=FALSE)
+gt_bimatrix(payoffs, labels1=c("C","D"), nash=F, arrow1=F)
 ```
 
-Chicken (#2): Pure strategy equiibriums marked
+Chicken (#2): Pure strategy equilibriums marked
 ```{r}
 payoffs <- matrix(c(2,3,1,0),2)
 gt_bimatrix(payoffs, labels1=c("C","D"))
 ```
 
-Assurance (#3): Pure strategy equiibriums marked
+Assurance (#3): Pure strategy equilibriums marked
 ```{r}
 payoffs <- matrix(c(3,2,0,1),2)
 gt_bimatrix(payoffs, labels1=c("C","D"))
 ```
 
-Illustrating the folk theorems (#4), for the Prisoner's Dilemma:
+Illustrating the folk theorems (#4) for the Prisoner's Dilemma:
 ```{r}
 payoffs <- matrix(c(2,3,0,1),2)
 gt_folk(payoffs)
@@ -62,7 +62,7 @@ gt_folk(payoffs)
 
 Condorcet Jury (#10): Gives an illustration of the law of large numbers
 ```{r}
-gt_jury(n=7, base=.6)
+gt_jury(n_voters=7, probability_correct=.6)
 ```
 
 Power indices (#13): Shows mapping between raw votes and power for two seemingly similar committees
@@ -96,8 +96,8 @@ gt_leg_barg(probabilities)
 
 Cascades (#22): Where you end up after 50,000 random orderings
 ```{r}
-x <- c(1,1,1,1,1,1,0,0,0)
-D <- replicate(50000, gt_declarations(sample(x))$Declarations)
+signals <- c(1,1,1,1,1,1,0,0,0)
+D <- replicate(50000, gt_cascade(sample(signals))$Declarations)
 mean(D[9,])
 ```
 
@@ -108,43 +108,43 @@ gt_nbs(u1 = function(x) x^.5, u2 = function (x) 1 - x)
 
 Simple version with equilibrium only marked. 
 ```{r}
-gt_nbs(solution_only = TRUE)
+gt_nbs(solution_only = T)
 ```
 
 Two Coase theorem illustrations (#31)
 ```{r}
 payoffs <- matrix(c(2,3,0,1),2)
-gt_coase(X=payoffs, bargain = TRUE, SQ = "minimax")
-gt_coase(f=function(x) 1-x^2, bargain = TRUE, SQ=c(0,1))
+gt_coase(payoffs, bargain = T, SQ = "minimax")
+gt_coase(f=function(x) 1-x^2, bargain = T, SQ=c(0,1))
 ```
 
-Clake-Groves mechanism (#36). The circular indifference curves at the bottom right imply dominant strategies
+Clarke-Groves mechanism (#36). The circular indifference curves at the bottom right imply dominant strategies
 ```{r, fig.width=7, fig.height=8}
 gt_cgm (theta1 = .2, theta2 = .4)
 ```
 
 Meltzer Richard (#40): Attitudes to taxes for a given endowment
 ```{r}
-gt_plot_mr(e = .5, main = "Endowment = 0.5")
+gt_plot_mr(endowment = .5)
 ```
 
-Evolutionary stabilty (#47)
-```{r, fig.width=8, fig.height=8}
+Evolutionary stability (#47)
+```{r, fig.width=9, fig.height=9}
 gt_sss(error = 0, periods = 2)
 ```
 
 Nash's theorem illustration (best response functions) (#A3)
 ```{r, fig.width=7, fig.height=7}
-XC <- matrix(c(0,1,.75,.25),2)
-gt_bimatrix(-XC, XC, srt1=90,
+goalie_payoff <- -matrix(c(0,1,.75,.25),2)
+gt_bimatrix(goalie_payoff, -goalie_payoff,
             labels1=c("Left","Right"), P1="Goalie", P2="Shooter")
 ```
 
-The best response graph -- you can do one of these for any normal form game. In this case you can see that if the shooter plays left with probability 0.33, the goalie is willing to play any srtategy (solid vertical line at 0.33); if the goalie plays left with probability 0.5, the shooter is willing to play any srtategy (horizontal dotted line at 0.5).
+The best response graph -- you can do one of these for any normal form game. In this case you can see that if the shooter plays left with probability 0.33, the goalie is willing to play any strategy (solid vertical line at 0.33); if the goalie plays left with probability 0.5, the shooter is willing to play any strategy (horizontal dotted line at 0.5).
 
 ```{r, fig.width=6.5, fig.height=6.8}
-gt_brgraph(-XC, XC,
-           labelsR=c("Left", "Right"), P1="Goalie", P2="Shooter")
+gt_brgraph(goalie_payoff, -goalie_payoff,
+           labels1=c("Left", "Right"), P1="Goalie", P2="Shooter")
 ```
 
 Extract the code used here:

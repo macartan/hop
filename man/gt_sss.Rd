@@ -4,10 +4,10 @@
 \alias{gt_sss}
 \title{Stochastic stabiity}
 \usage{
-gt_sss(mat = gt_sss_mat, e = 1, t = 1, cex.pt = 8, ann = TRUE,
-  mar = 1.5, oma = 5, bgcol = "gray90", pointcol = "gray50",
-  labcex = 0.5, indent = 4, arrows = TRUE, etlabs = TRUE,
-  outax = TRUE)
+gt_sss(mat = gt_sss_mat, error = 1, e = error, periods = 1,
+  t = periods, cex.pt = 8, ann = TRUE, mar = 1.5, oma = 5,
+  bgcol = "gray90", pointcol = "gray50", labcex = 0.5, indent = 4,
+  arrows = TRUE, etlabs = TRUE, outax = TRUE)
 }
 \arguments{
 \item{e}{Error}
