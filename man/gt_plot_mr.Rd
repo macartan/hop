@@ -15,6 +15,8 @@ gt_plot_mr(endowment = 0.5, e = endowment, tax = seq(0, 1, 0.01),
 \arguments{
 \item{e}{Endowment}
 
+\item{main}{Main title}
+
 \item{gt_mr_distribution}{function showing distribution given taxes}
 
 \item{gt_mr_production}{function giving production given taxes}

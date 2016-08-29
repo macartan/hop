@@ -1,9 +1,14 @@
 #' Nash bargaining solution
 #'
+#' Calculates and plots the Nash bargaining solution for a two player game. Provide either a payoff matrix for underlying game or a function that defines a frontier.
 #' @param u1 a function, increasing in x
 #' @param u2 a function, decreasing in x
 #' @param matrix if TRUE payof matrix expected rather than function, SQ may be set manullay or minimax assumed
+#' @param X a payoff matrix with utilities for player 1
+#' @param Y a payoff matrix with utilities for player 2
+#' @param SQ 2 a dimensional vector with status quo utilities
 #' @param solution_only Just show solution
+#' @param origin Mark the origin if TRUE
 #' @keywords Nash bargaining
 #' @export
 #' @examples
@@ -31,7 +36,7 @@ gt_nbs <- function(u1 = function(x) x^.5,
                   NBScol = "black",
                   diagonal = TRUE,
                   at = c(0,1),
-                  origin = TRUE # MArk the origin
+                  origin = TRUE # Mark the origin
                   ){
 
 # Say:

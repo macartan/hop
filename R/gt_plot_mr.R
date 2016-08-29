@@ -7,6 +7,7 @@
 #' @param gt_mr_production function giving production given taxes
 #' @param gt_mr_maxu function giving max utility given endowment
 #' @param gt_mr_utility function giving utility given taxes
+#' @param main Main title
 #' @keywords Melzer Richard, Tax
 #' @export
 #' @examples

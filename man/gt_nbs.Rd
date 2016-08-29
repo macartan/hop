@@ -19,10 +19,18 @@ gt_nbs(u1 = function(x) x^0.5, u2 = function(x) (1 - x), matrix = FALSE,
 
 \item{matrix}{if TRUE payof matrix expected rather than function, SQ may be set manullay or minimax assumed}
 
+\item{X}{a payoff matrix with utilities for player 1}
+
+\item{Y}{a payoff matrix with utilities for player 2}
+
+\item{SQ}{2 a dimensional vector with status quo utilities}
+
 \item{solution_only}{Just show solution}
+
+\item{origin}{Mark the origin if TRUE}
 }
 \description{
-Nash bargaining solution
+Calculates and plots the Nash bargaining solution for a two player game. Provide either a payoff matrix for underlying game or a function that defines a frontier.
 }
 \examples{
  gt_nbs(u1 = function(x) x^.5, u2 = function (x) 1 - x)
