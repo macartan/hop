@@ -1,8 +1,8 @@
 Package: hop
-Title: What the Package Does (one line, title case)
+Title: Generates plots for various games used in **Political Games**
 Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Authors@R: person("Macartan", "Humphreys", email = "macartan@gmail.com", role = c("aut", "cre"))
+Description: Functions for solving and plotting simple games. 2 player normal form games and generic externsive form games of full information.
 Depends:
     R (>= 3.2.2)
 License: What license is it under?
