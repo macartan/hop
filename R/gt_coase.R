@@ -35,7 +35,7 @@ gt_coase = function(X=NULL, Y=t(X),
 			col1b=col1,
 			col2b=col2,
 			arrcol="black",
-			offs=.1,
+			offs=.15,
 			textsz = 1,
 			length=.1,
 			axes=FALSE,
@@ -86,6 +86,7 @@ if(bargain) {
 	text((z+SQ[1]-SQ[2])/2 + offs, (z+SQ[2]-SQ[1])/2+ offs, "Possible deals", srt=-45, cex=textsz )
 	segments(SQ[1], z-SQ[1], z-SQ[2], SQ[2], lwd=4, col = col2b)
 	if(addarrows) for(p in c(.1, .5, .9)) arr(SQ[1],SQ[2],z,p)
+box()
 }}
 
 
