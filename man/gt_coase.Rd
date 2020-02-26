@@ -11,7 +11,7 @@ gt_coase(X = NULL, Y = t(X), f = function(x) {     1 - x },
   xlab = expression(italic(u)[1]), ylab = expression(italic(u)[2]),
   main = "", mainsize = 1, addarrows = TRUE, figtitle = "",
   col1 = "red", col2 = "pink", col1b = col1, col2b = col2,
-  arrcol = "black", offs = 0.1, textsz = 1, length = 0.1,
+  arrcol = "black", offs = 0.15, textsz = 1, length = 0.1,
   axes = FALSE, mar = 2 * c(1, 1, 1, 1), mgpY = c(1, 1, 0), mgpX = c(1,
   1, 0))
 }
@@ -37,4 +37,3 @@ gt.coase(X=matrix(c(2,3,0,1),2), matrix=TRUE, feasible=TRUE,  bargain = TRUE)
 }
 \keyword{Coase}
 \keyword{Theorem}
-

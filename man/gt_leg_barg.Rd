@@ -18,4 +18,3 @@ Legislative bargaining with three equally weighted voters. For any recognition p
  gt_leg_barg(c(.7,.3,0))
 }
 \keyword{MIW}
-

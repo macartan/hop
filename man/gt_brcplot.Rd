@@ -35,4 +35,3 @@ Function for plotting utilities for  games in which two players can each choose 
 \keyword{Best}
 \keyword{plot}
 \keyword{response}
-

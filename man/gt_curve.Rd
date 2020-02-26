@@ -24,4 +24,3 @@ gt_curve()
 }
 \keyword{arrows}
 \keyword{curve}
-

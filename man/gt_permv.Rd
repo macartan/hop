@@ -16,4 +16,3 @@ Generates set of permutations. Credit: Bernd Beber
 gt_permv(c(2,3))
 }
 \keyword{permutations}
-

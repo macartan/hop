@@ -18,4 +18,3 @@ gt_minimax(A, 200)
 
 }
 \keyword{Minimax}
-

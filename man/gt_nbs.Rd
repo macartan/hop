@@ -38,4 +38,3 @@ Calculates and plots the Nash bargaining solution for a two player game. Provide
 }
 \keyword{Nash}
 \keyword{bargaining}
-

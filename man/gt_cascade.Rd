@@ -17,4 +17,3 @@ A  cascade  can  also  form,  for  example,  if  the  first  two  decisions  dif
  gt_cascade(c(0,0,1,1,0))
 }
 \keyword{Cascade}
-

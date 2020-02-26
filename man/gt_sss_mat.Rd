@@ -17,4 +17,3 @@ gt_sss_mat()
 }
 \keyword{Stability}
 \keyword{Stochastic}
-

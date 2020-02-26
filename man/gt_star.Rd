@@ -18,4 +18,3 @@ gt_star()
 
 }
 \keyword{stars}
-

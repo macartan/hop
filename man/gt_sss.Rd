@@ -22,4 +22,3 @@ gt_sss()
 }
 \keyword{Stability}
 \keyword{Stochastic}
-

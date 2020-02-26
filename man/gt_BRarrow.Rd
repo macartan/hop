@@ -19,4 +19,3 @@ Helper to make best response arrows for bimatrix
 gt_BRarrow()
 }
 \keyword{arrow}
-

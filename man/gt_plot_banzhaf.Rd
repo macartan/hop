@@ -26,4 +26,3 @@ Plot Banzhaf index against normalized raw weights
 \keyword{Banzhaf,}
 \keyword{Decision}
 \keyword{Rules}
-

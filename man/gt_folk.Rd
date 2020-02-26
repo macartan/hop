@@ -27,4 +27,3 @@ gt_folk(X,Y)
 \keyword{Nash}
 \keyword{Payoff}
 \keyword{matrix,}
-

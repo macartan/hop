@@ -17,8 +17,9 @@
 #' @param player.names, a matrix of player labels in the order specified in U
 #' @param thickness of line for SPNE
 #' @param sadj does a fix on the text slope
-#' @param uss indicates to write utilitys in form u_name; otherwise just name
+#' @param uss indicates to write utilities in form u_name; otherwise just name
 #' @param utextsize is textsize for utilities
+#' @param warnings print warnings
 #' @keywords Game tree
 #' @export
 #' @examples
@@ -52,6 +53,7 @@ gt_tree = function(
   mark.branches=((ncol(H)-1):1),    # indicate whether to not mark solutions for some branches; eg exclude first decision if made by nature: mark.branches=((ncol(H)-1):2)
 	offset=.18,
   thickline=3,
+  print.utilities = rep(TRUE, ncol(U)),  # Indicate which utilities get printed
   uspacing=.5,
 	slopetext = TRUE,
   actioncol="blue",
@@ -59,14 +61,17 @@ gt_tree = function(
   solutioncol = "black",
   sadj=ncol(H)/(nrow(H)+1),
   uss=TRUE,
-	angled = FALSE  # ANGLED MAKES SECOND LAST BRANCH ANGLED FOR CLARITY; NOT GERNALLY NEEDED
+	angled = FALSE,  # ANGLED MAKES SECOND LAST BRANCH ANGLED FOR CLARITY; NOT GERNALLY NEEDED
+  warnings = TRUE
 				   ){
-
+  if(!is.matrix(H)) stop("H should be a matrix")
+  if(!is.matrix(U)) stop("U should be a matrix")
+  if(!is.matrix(P)) stop("P should be a matrix")
   if(length(unique(H[,1]))!=1) {H <- cbind(rep(0, nrow(H)), H); print("Initial history column added")}
   N  <- nrow(H)
 	n  <- ncol(U)
 	if(solution &  ( length(apply(U, 2, unique)) !=(n*N))) {
-	  if(force_solution) print("Warning: Solution attempted even though game is not generic")
+	  if(force_solution & warnings) print("Warning: Solution attempted even though game is not generic")
 	  if(!force_solution) {solution <- FALSE; print("Game is not generic and solution not attempted.")}
 	}
 	C  <- 1:N
@@ -119,9 +124,10 @@ gt_tree = function(
 	if(!slopetext) for(i in 1:(t-1)){text(i+.5, (.5*POINTS2[,i]+.5*POINTS2[,i+1] + offset*sign(POINTS2[,i+1] - POINTS2[,i])), H2[,i+1], cex=btextsize, col=actioncol)}		# LABEL STRATEGIES
 
 	# MARK UTILITIES
-	for(i in 1:n){text(rep(t+i*uspacing,N), 1:N, U[,i],  cex=textsize)}
-	if(uss) for(i in 1:n){text(t+i*uspacing, N+.5, bquote(u[.(player.names[i])]),cex=utextsize)}	# HEADER FOR UTILITIES
-	if(!uss) for(i in 1:n){text(t+i*uspacing, N+.5, player.names[i],cex=utextsize)}	# HEADER FOR UTILITIES
+	n2 <- (sum(print.utilities))
+	for(i in 1:n2){text(rep(t+i*uspacing,N), 1:N, U[,print.utilities][,i],  cex=textsize)}
+	if(uss)  for(i in 1:n2){text(t+i*uspacing, N+.5, bquote(u[.(player.names[print.utilities][i])]),cex=utextsize)}	# HEADER FOR UTILITIES
+	if(!uss) for(i in 1:n2){text(t+i*uspacing, N+.5, player.names[print.utilities][i],cex=utextsize)}	# HEADER FOR UTILITIES
 
 	# ADD PLAYER LABELS TO NODES
 	for(i in 1:(t-1)){for(j in 1:N){text(i, POINTS3[j, i]+offset, player.names[P[j, i]], cex=textsize, col = playercol)} }

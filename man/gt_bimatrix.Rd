@@ -63,4 +63,3 @@ gt_bimatrix(matrix(c(1,0,0,0), 2, 2),
 \keyword{Nash}
 \keyword{Payoff}
 \keyword{matrix,}
-

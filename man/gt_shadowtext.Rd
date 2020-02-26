@@ -31,4 +31,3 @@ frame()
 gt_shadowtext(x = .5, y = .5, labels = "text", col = "white", bg = "red")
 }
 \keyword{text}
-

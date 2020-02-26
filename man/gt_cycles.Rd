@@ -33,4 +33,3 @@ gt_cycles(3,5)
 \keyword{Chaos}
 \keyword{Plott,}
 \keyword{Spatial,}
-

@@ -24,4 +24,3 @@ Phase plot for majority rule. Requires majority preference relation function.
  gt_majority_phase(matrix(c(0, 0, .5, 1, 1, 0), 2), 31, raylengths=.5)
 }
 \keyword{Plott}
-

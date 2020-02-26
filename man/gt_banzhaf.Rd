@@ -21,4 +21,3 @@ Done by taking all coalitions and adding +1 for decisive coalitions, -1 otherwis
 \keyword{Banzhaf,}
 \keyword{Decision}
 \keyword{Rules}
-

@@ -22,4 +22,3 @@ Illustrates basic logic from law of large numbers.
 }
 \keyword{Condorcet,}
 \keyword{Jury}
-

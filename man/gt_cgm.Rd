@@ -28,4 +28,3 @@ Utility for public good is of the form u(x | theta_i) = theta_i*x^.5 - t_i. Defa
 \keyword{Groves}
 \keyword{Mechanism}
 \keyword{Mechanism,}
-

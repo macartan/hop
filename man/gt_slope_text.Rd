@@ -19,4 +19,3 @@ frame()
 gt_slope_text("quadratic", f = function(x) x^2)
 }
 \keyword{text}
-

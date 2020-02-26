@@ -20,4 +20,3 @@ Generate a sequence centered on s, with length l, and gaps of d. Used to align m
 gt_shift()
 }
 \keyword{shift}
-

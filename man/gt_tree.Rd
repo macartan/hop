@@ -4,29 +4,33 @@
 \alias{gt_tree}
 \title{Game Tree}
 \usage{
-gt_tree(H, U, P, textsize = 1.5, utextsize = textsize,
-  btextsize = textsize, solution = TRUE, mark.branches = ((ncol(H) -
-  1):1), offset = 0.18, player.names = c(1:ncol(U)), thickline = 3,
-  uspacing = 0.5, title = "", slopetext = TRUE, branchcol = "blue",
-  sadj = ncol(H)/(nrow(H) + 1), uss = TRUE, angled = FALSE,
-  force_solution = FALSE)
+gt_tree(H, U, P, player.names = c(1:ncol(U)), playercol = "black",
+  title = "", titlecol = "black", textsize = 1.5, titlesize = textsize,
+  utextsize = textsize, btextsize = textsize, solution = TRUE,
+  force_solution = FALSE, mark.branches = ((ncol(H) - 1):1),
+  offset = 0.18, thickline = 3, print.utilities = rep(TRUE, ncol(U)),
+  uspacing = 0.5, slopetext = TRUE, actioncol = "blue",
+  branchcol = "black", solutioncol = "black", sadj = ncol(H)/(nrow(H) +
+  1), uss = TRUE, angled = FALSE, warnings = TRUE)
 }
 \arguments{
+\item{player.names, }{a matrix of player labels in the order specified in U}
+
 \item{textsize}{Text size}
 
 \item{utextsize}{is textsize for utilities}
 
 \item{solution}{FALSE to turn off computation of SPNE}
 
-\item{offset}{Used to adjust  text offsetting}
+\item{force_solution}{TRUE to force a solution for a non-generic game}
 
-\item{player.names, }{a matrix of player labels in the order specified in U}
+\item{offset}{Used to adjust  text offsetting}
 
 \item{sadj}{does a fix on the text slope}
 
-\item{uss}{indicates to write utilitys in form u_name; otherwise just name}
+\item{uss}{indicates to write utilities in form u_name; otherwise just name}
 
-\item{force_solution}{TRUE to force a solution for a non-generic game}
+\item{warnings}{print warnings}
 
 \item{H:}{A matrix of histories with one row per terminal node, and one column per time period, entries are node labels. First column is normally all 0s for the origin; if first column has variation an origin is added to the hostory.}
 
@@ -52,11 +56,10 @@ In this version the graphing is not good when there are multiple solutions or in
 # A game in which options depend on past history.
   H <- matrix(c("Take hostages", "Take hostages", "             Don't take hostages", "Pay Ransom", "Don't pay", ""),3)
   U <- matrix(c(1,-1,0,-1,-2,0), 3)
-  P <-  matrix(c(rep(1,3), rep(2,3)),3)
+  P <-  matrix(c(rep(1,3), c(2,2,1)),3)
   gt_tree(H,U,P,solution=FALSE, player.names=c("Militants", "Gov"))
 Same game with a solution, though note the phantom highlighting in this example.
   gt_tree(H,U,P,solution=TRUE, player.names=c("Militants", "Gov"))
 }
 \keyword{Game}
 \keyword{tree}
-

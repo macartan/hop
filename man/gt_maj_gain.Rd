@@ -26,4 +26,3 @@ gt_maj_gain(matrix(c(0, 0, .5, 1, 1, 0), 2), 0:1, c(.5,.5))
 \keyword{Chaos}
 \keyword{Plott,}
 \keyword{Spatial,}
-

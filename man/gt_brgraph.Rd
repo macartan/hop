@@ -61,4 +61,3 @@ gt_brgraph(Chicken, BR = FALSE, util = TRUE,
 \keyword{Payoff}
 \keyword{matrix,}
 \keyword{responses}
-

@@ -37,4 +37,3 @@ gt_plot_mr(e=.5, main = "Endowment = .5")
 \keyword{Melzer}
 \keyword{Richard,}
 \keyword{Tax}
-

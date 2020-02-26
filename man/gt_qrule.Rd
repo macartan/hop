@@ -23,4 +23,3 @@ Assesses whether a coalition is sufficient to support an action
 \keyword{Condorcet,}
 \keyword{Decision}
 \keyword{RUles}
-
