@@ -5,11 +5,12 @@ output:
     theme: cerulean
     keep_md: yes
 ---
+
 # Games {.tabset .tabset-fade .tabset-pills}
 
 Most of the items in *Political Games* look at either  "normal form games" (or "games in strategic form") or "extensive form games." Normal form games are games in which you specify three things:  i) a set of players, ii) actions available for each, and iii) preferences over outcomes. Extensive form games add a temporal dimension which lets you model important strategic features like credibiity and time consistency. 
 
-In the ``hop`` package there are a suite a functions to model both types of game.
+In the ``hop`` package there are functions to model both types of game.
 
 Simple normal form games can be illustrated nicely with payoff matrices --- figures that represent these three items in a direct way. The payoff matrices in the book are all generated using a simple R function `gt_bimatrix` from the  ```hop``` R package that takes a matrix of numbers as input and spits out a nice looking payoff matrix, indicating the pure strategy Nash equilibriums to boot. 
 
@@ -22,6 +23,7 @@ A few other functions in the package can be used to examine the strategic logic 
 For extensive form games the key function is ``gt_tree`` which can be used to plot game trees and find solutions to simple games. 
 
 Follow the buttons below for more.
+
 
 
 ## Getting Going   
@@ -39,12 +41,15 @@ library(hop)
 ```
 
 ## Payoff matrices 
-The ```gt_bimatrix``` takes a payoff matrix and turns it into a nice figure. It can also mark best response functions as arrows and mark the (pure strategy) equilibriums as a star.
+
+The `gt_bimatrix` takes a payoff matrix and turns it into a nice figure. It can also mark best response functions as arrows and mark the (pure strategy) equilibriums as a star.
 
 ### Games with two players and two strategy options
+
 The most basic games have just two strategy options for each player. 
 
 The prisoner's dilemma matrix for example looks like this:
+
 
 ```r
 PD <- matrix(c(2,4,1,3),2,2)
@@ -115,6 +120,7 @@ gt_bimatrix(X = matrix(c(1,4,3,2),2,2), Y = matrix(c(2,3,4,1),2,2),
 <img src="games_files/figure-html/unnamed-chunk-10-1.png" style="display: block; margin: auto;" />
 
 ### Two players but multiple strategies
+
 Extending to games with multiple actions for two players is straightforward and there
 is no requirement that both players have the same options available to them. (Increasing the number of players is  trickier than increasing the number of options)
 
@@ -355,12 +361,14 @@ rownames(H) <- c("H1", "H2", "H3", "H4")
 kable(H, col.names = c("T0", "T1", "T2"))
 ```
 
-     T0   T1   T2 
----  ---  ---  ---
-H1   0    C    C  
-H2   0    C    D  
-H3   0    D    C  
-H4   0    D    D  
+
+
+|   |T0 |T1 |T2 |
+|:--|:--|:--|:--|
+|H1 |0  |C  |C  |
+|H2 |0  |C  |D  |
+|H3 |0  |D  |C  |
+|H4 |0  |D  |D  |
 
 Player Function:
 
@@ -369,12 +377,14 @@ rownames(P) <- c("H1", "H2", "H3", "H4")
 kable(P, col.names = c("T1", "T2"))
 ```
 
-      T1   T2
----  ---  ---
-H1     1    2
-H2     1    2
-H3     1    2
-H4     1    2
+
+
+|   | T1| T2|
+|:--|--:|--:|
+|H1 |  1|  2|
+|H2 |  1|  2|
+|H3 |  1|  2|
+|H4 |  1|  2|
 
 Utilities:
 
@@ -383,12 +393,14 @@ rownames(U) <- c("H1", "H2", "H3", "H4")
 kable(U, col.names =c("U1", "U2"))
 ```
 
-      U1   U2
----  ---  ---
-H1     1    1
-H2     0    2
-H3     2    0
-H4    -1   -1
+
+
+|   | U1| U2|
+|:--|--:|--:|
+|H1 |  1|  1|
+|H2 |  0|  2|
+|H3 |  2|  0|
+|H4 | -1| -1|
 
 ### Illustration 2: The Hostage Game
 
