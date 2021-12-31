@@ -513,9 +513,13 @@ gt_tree(H,U,P, title = "Non-generic", solution = TRUE, force_solution = TRUE)
 
 This can however have undesireable consequences:
 
+
 ```r
-U[1,2] <- 2
-gt_tree(H,U,P, title = "Non-generic", solution = TRUE, force_solution = TRUE)
+U2 <- U
+U2[1,2] <- 2
+
+gt_tree(H,U2,P, 
+        title = "Non-generic", solution = TRUE, force_solution = TRUE)
 ```
 
 ```
@@ -526,7 +530,9 @@ gt_tree(H,U,P, title = "Non-generic", solution = TRUE, force_solution = TRUE)
 
 
 ### Formatting
+
 You can do a reasonable amount of formatting in terms of specifying sizes and colors. eg: 
+
 
 ```r
 gt_tree(H,U,P, 
@@ -554,5 +560,6 @@ gt_tree(H,U,P,
 <img src="index_files/figure-html/unnamed-chunk-40-1.png" style="display: block; margin: auto;" />
 
 ### Limitations
-Besides being in alpha stage the main limitations of this function the fact that it cannot solve when there are multiple equilibria and payoff indifferences; and it cannot solve games of incomplete information. Even still it can be used to graph these and then then information sets and solutions can be superimposed.  
+
+Besides being in alpha stage the main limitations of this function is that it cannot solve when there are multiple equilibria and payoff indifferences; and it cannot solve games of incomplete information. Even still it can be used to graph these and then the information sets and solutions can be superimposed.  
 
